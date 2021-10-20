@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>One Music - Modern Music HTML5 Template</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- search2 -->
+    <!--html5默认设置-->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!--css3必要样式-->
+    <link
+      rel="stylesheet"
+      href="styleone.css"
+      media="screen"
+      type="text/css"
+    />
+    <script>
+    	function myFunction(){
+    		var item = document.getElementById("test");
+    		console.log(item.value);
+    		window.location.href='/Hello/songSearchServlet?item=' + item.value;
+    	}
+    </script>
+  </head>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="oneMusic-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                        <!-- Nav brand -->
+                        <a href="aboutus.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"></span>
+                        </div>
+
+                        <section class="webdesigntuts-workshop">
+                            
+                              <input id="test" type="search" placeholder="欢迎来到HCGL音乐世界" />                         	   
+                              <button onclick="myFunction()">搜索</button>
+                                           
+                            
+                          </section>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="index.html">主页</a></li>
+                                    <li><a href="song.html">歌曲</a></li>
+                                    <li><a href="#">选项</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">主页</a></li>
+                                            <li><a href="song.html">歌曲</a></li>
+                                            <li><a href="singer.html">歌手</a></li>
+                                            <li><a href="blog.jsp">我的</a></li>
+                                            <!-- <li><a href="contact.html">Contact</a></li> -->
+                                            <!-- <li><a href="elements.html">Elements</a></li> -->
+                                            <li><a href="login.html">登录</a></li>
+                                           
+                                        </ul>
+                                    </li>
+                                    <li><a href="singer.html">歌手</a></li>
+                                    <li><a href="blog.jsp">我的</a></li>
+                                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                                </ul>
+
+                                <!-- Login/Register & Cart Button -->
+                                <div class="login-register-cart-button d-flex align-items-center">
+                                    <!-- Login/Register -->
+                                    <div class="login-register-btn mr-50">
+                                        <a href="login.html" id="loginBtn">登录 / 退出</a>
+                                    </div>
+
+                                    <!-- Cart Button -->
+                                    <div class="cart-btn">
+                                        <!-- <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <!-- Slide Img -->
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
+                <!-- Slide Content -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="hero-slides-content text-center">
+                                <h6 data-animation="fadeInUp" data-delay="100ms">Designed Concise</h6>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">HCGL Time <span>HCGL Time</span></h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="song.html" class="btn oneMusic-btn mt-50">发现 <i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <!-- Slide Img -->
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-2.jpg);"></div>
+                <!-- Slide Content -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="hero-slides-content text-center">
+                                <h6 data-animation="fadeInUp" data-delay="100ms">Designed Concise</h6>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">CCNU Music <span>CCNU Music</span></h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="singer.html" class="btn oneMusic-btn mt-50">发现 <i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Latest Albums Area Start ##### -->
+    	<form>
+    		<div>
+    			  <div>
+                    <button class="search-icon" onClick="searchToggle(this, event);">
+                      <span></span>
+                    </button>
+                  </div>
+                  <span class="close" onClick="searchToggle(this, event);"></span>
+                  <div class="result-container"></div>
+                </div>
+            </form>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9">
+                    <div class="ablums-text text-center mb-70">
+                        <p > 畅 游 音 海 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="albums-slideshow owl-carousel">
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a1.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>JAM JAM</h5>
+                                </a>
+                                <p>IU</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a2.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>Sailing</h5>
+                                </a>
+                                <p>安艺恩</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a3.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>门</h5>
+                                </a>
+                                <p>李健</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a4.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>安河桥</h5>
+                                </a>
+                                <p>宋冬野</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a5.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>南方姑娘</h5>
+                                </a>
+                                <p>赵雷</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a6.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>只要平凡</h5>
+                                </a>
+                                <p>张杰</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Album -->
+                        <div class="single-album">
+                            <img src="img/bg-img/a18.jpg" alt="">
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>CHANGE</h5>
+                                </a>
+                                <p>泫雅</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    <!-- ##### Latest Albums Area End ##### -->
+
+   
+    
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-9">
+            <div class="ablums-text text-center mb-70">
+                <p > 为 你 而 来 </p>
+            </div>
+        </div>
+    </div>
+            <div class="row">
+ 
+            </div>
+ 
+    <!-- ##### Contact Area Start ##### -->
+    <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url(img/bg-img/bg-2.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading white wow fadeInUp" data-wow-delay="100ms">
+                        <p> Enjoy the  music </p>
+                        <h2>HCGL Always Be With You</h2>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</section>
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="js/active.js"></script>
+
+    <script type="text/javascript">
+
+        $(function(){
+            function searchToggle(obj, evt) {
+                alert("2");
+                var container = $(obj).closest(".search-wrapper");
+        
+                if (!container.hasClass("active")) {
+                    container.addClass("active");
+                    evt.preventDefault();
+                } else if (
+                    container.hasClass("active") &&
+                    $(obj).closest(".input-holder").length == 0
+                ) {
+                    container.removeClass("active");
+                    // clear input
+                    container.find(".search-input").val("");
+                    // clear and hide result container when we press close
+                    container.find(".result-container").fadeOut(100, function () {
+                    $(this).empty();
+                    });
+                }
+                }
+        
+                function submitFn(obj, evt) {
+                value = $(obj).find(".search-input").val().trim();
+        
+                _html = "您搜索的关键词： ";
+                if (!value.length) {
+                    _html = "关键词不能为空。";
+                } else {
+                    _html += "<b>" + value + "</b>";
+                }
+        
+                $(obj)
+                    .find(".result-container")
+                    .html("<span>" + _html + "</span>");
+                $(obj).find(".result-container").fadeIn(100);
+        
+                evt.preventDefault();
+            }
+        })
+        
+      </script>
+</body>
+
+</html>

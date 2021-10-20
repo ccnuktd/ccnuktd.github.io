@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../assets/css/layui.css">
+    <link rel="stylesheet" href="../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>管理后台</title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-page-header">
+            <div class="pagewrap">
+                <span class="layui-breadcrumb">
+                  <a href="">首页</a>
+                  <a href="">用户</a>
+                  <a><cite>歌曲组</cite></a>
+                </span>
+                <h2 class="title">歌曲组</h2>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="form-box">
+                        <div class="layui-form layui-form-item">
+                            <div class="layui-inline">
+                              <form> 
+                              <div class="layui-form-mid">歌曲名:</div>
+                                <div class="layui-input-inline" style="width: 100px;">
+                                  <input type="text" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-form-mid">歌手:</div>
+                                <div class="layui-input-inline" style="width: 100px;">
+                                  <input type="text" autocomplete="off" class="layui-input">
+                                </div>
+                                <!-- <div class="layui-form-mid">语种:</div>
+                                <div class="layui-input-inline" style="width: 100px;">
+                                    <select name="language">
+                                        <option value="1">国语</option>
+                                        <option value="2">英语</option>
+                                        <option value="3">粤语</option>
+                                        <option value="4">韩语</option>
+                                        <option value="5">日语</option>
+                                        <option value="6">小语种</option>
+                                    </select>     
+                                </div> -->
+                                <button class="layui-btn layui-btn-blue">查询</button>
+                                <!-- <button class="layui-btn layui-btn-blue">修改</button>
+                                <button class="layui-btn layui-btn-blue">删除</button> -->
+                                <button type="reset"class="layui-btn layui-btn-primary">重置</button>
+                              </form>
+                            </div>
+                        </div>
+                        <a href="song.html" class="layui-btn layui-btn-blue"><i class="layui-icon">&#xe654;</i>新增</a>
+                        <table class="layui-table" lay-data="{width:900, height:360, url:'/Hello/listSong', page:true, id:'test'}" lay-filter="demo">
+							<thead>
+								<tr>
+									<th
+										lay-data="{field:'sno', width:70, sort: true,align:'center', fixed: true,page: true}">ID</th>
+									<th lay-data="{field:'sname', width:132,align:'center',edit:'text'}">歌曲名称</th>
+									<th
+										lay-data="{field:'vname', width:110, align:'center',sort: true,edit:'text'}">歌手名字</th>
+									<th lay-data="{field:'sadd', width:160,align:'center'}">服务器路径</th>
+									<th lay-data="{field:'slanguage', width:80,align:'center'}">语种</th>
+									<th lay-data="{field:'skind', width:80,align:'center'}">类型</th>
+									<th
+										lay-data="{field:'sother', width:100,align:'center',edit:'text'}">其他</th>
+									<th
+										lay-data="{fixed: 'right', width:160, align:'center', toolbar: '#barDemo'}">操作</th>
+								</tr>
+							</thead>
+						</table>
+						<script type="text/html" id="barDemo">
+    						<a class="layui-btn layui-btn-xs" lay-event="tableUpdate">编辑</a>
+    						<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="tableDelete">删除</a>
+						</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/layui.all.js" type="text/javascript"></script>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    
+	<script>
+		layui.use('table', function() {
+			var table = layui.table;
+			//监听表格复选框选择
+			table.on('checkbox(demo)', function(obj) {
+				console.log(obj)
+			});
+			//监听工具条
+			table.on('tool(demo)', function(obj) {
+				var data = obj.data;
+				if (obj.event === 'tableDelete') {
+					layer.confirm('真的删除行么', function(index) {
+						obj.del();
+						$.ajax({
+							type : "get",
+							url : "/Hello/deleteSong?sno=" + data.sno,
+							dataType : "json"
+						});
+						layer.close(index);
+					});
+ 
+				} else if (obj.event === 'tableUpdate') {
+					//layer.alert('编辑行：<br>'+ JSON.stringify(data))										
+					$.ajax({
+						type : "post",
+						data : data,
+						url : "/Hello/editSong",
+						dataType : "json"
+					});
+ 
+				}
+			});
+		});
+      /* var element = layui.element;
+  var table = layui.table;
+  var form = layui.form;
+  
+  //展示已知数据
+  table.render({
+    elem: '#demo'
+    ,cols: [[ //标题栏
+      {field: 'id', title: '序号', width: 150, sort: true}
+      ,{field: 'songname', title: '歌名', width: 300}
+      ,{field: 'singer', title: '歌手', width: 300}
+      ,{field: 'type', title: '类型', width: 100}
+      ,{field: 'language', title: '语种', width: 100}
+    ]]
+    ,data: []
+    ,skin: 'line' //表格风格
+    ,even: true
+    ,page: true //是否显示分页
+    ,limits: [5, 7, 10]
+    ,limit: 5 //每页默认显示的数量
+  }); */
+    </script>
+</body>
+</html>
