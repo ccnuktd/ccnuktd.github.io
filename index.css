@@ -1,26 +1,42 @@
-*{
+body{
     margin-top: 0px;
+    margin: 0 10% 0 10%;
 }
 .grid-container{
     display: grid;
-    grid-template-rows:100px 1fr 1fr 1fr;
+    grid-template-rows:100px auto auto auto;
     grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
     grid-gap: 5px;
-    height: 100vh; 
-    /* min-width: 750px; */
+    /* min-width: 850px; */
 }
+
 .grid-container > :nth-child(1){
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
+    /* position: fixed; */
 }
+
+@media (max-width: 900px){
+    .grid-container .nav{
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto !important;
+        /* background-image: url(./img/nav.png); */
+        /* background-size: cover; */
+    }
+    .grid-container .nav h1{
+        display: none !important;
+    }
+}
+    
 .grid-container .nav{
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto auto;
-    background-image: url(./img/nav.png);
-    background-size: cover;
+    /* background-image: url(./img/nav.png); */
+    /* background-size: cover; */
 }
 .grid-container .nav h1{
     margin-left: 10px;
@@ -101,7 +117,7 @@
     border-bottom: 0.5em solid #fff;
 }
 
-.grid-container > :nth-child(2){
+.main{
     grid-row-start: 2;
     grid-row-end: 5;
     grid-column-start: 1;
@@ -111,28 +127,56 @@
     grid-template-rows:auto;
     grid-template-columns: 200px auto;
     grid-gap: 5px;
+    text-align: left;
+    
 }
-
-.grid-container > :nth-child(2) >:nth-child(1){
-    color: #000;
+.main1{
     text-align: center;
 }
-@media (max-width: 500px) {
-    .grid-container > :nth-child(2) >:nth-child(2){
+.main1 ul{
+    display: grid;
+    grid-template-columns: auto auto;
+    list-style-type: none;
+}
+
+@media (max-width: 900px) {
+    .main{
+        display: block;
+        background-color: white;
         text-align: left;
-        overflow: hidden;
+    }
+    .main1 img{
+        width: 100px;
+        margin-left: 20%;
+        float: left;
+    }
+    .main1 h3{
+        text-align: left;
+        /* display: none; */
+    }
+    .main p{
+        text-align: left;
+        margin-bottom: 0;
+        
+    }
+    .main1 ul{
+        display: none;
     }
 }
-.grid-container > :nth-child(2) >:nth-child(2){
-    margin: 0 20% auto 20%;
+
+.grid-container .main1 ul{
+    /* display: grid; */
+    padding-left: 0;
+}
+
+.grid-container .main1 p{
+    font-size: 0.5em;
+}
+
+.main2{
+    margin: 0 20% 0 20%;
     text-align: left;
     overflow: hidden;
 }
 
-/* .grid-container > :nth-child(3){
-    grid-row-start: 2;
-    grid-row-end: 5;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    background-color: pink;
-} */
+
