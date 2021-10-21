@@ -7,7 +7,7 @@
     grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
     grid-gap: 5px;
     height: 100vh; 
-    min-width: 750px;
+    /* min-width: 750px; */
 }
 .grid-container > :nth-child(1){
     grid-column-start: 1;
@@ -116,6 +116,12 @@
 .grid-container > :nth-child(2) >:nth-child(1){
     color: #000;
     text-align: center;
+}
+@media (max-width: 500px) {
+    .grid-container > :nth-child(2) >:nth-child(2){
+        text-align: left;
+        overflow: hidden;
+    }
 }
 .grid-container > :nth-child(2) >:nth-child(2){
     margin: 0 20% auto 20%;
