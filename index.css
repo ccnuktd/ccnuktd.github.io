@@ -146,8 +146,9 @@ body{
         text-align: left;
     }
     .main1 img{
-        width: 60px;
+        width: 100px;
         margin-left: 20%;
+        /* 用float手机端显示有问题 */
         float: left;
     }
     .main1 h3{
