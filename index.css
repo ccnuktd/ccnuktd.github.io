@@ -1,8 +1,12 @@
 body{
     margin-top: 0px;
     margin: 0 10% 0 10%;
+    background-color:#7a7873;
 }
+
+
 .grid-container{
+    
     display: grid;
     grid-template-rows:100px auto auto auto;
     grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
@@ -122,16 +126,20 @@ body{
     grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 5;
-    background-color: white;
+    background-color:whitesmoke;
     display: grid;
     grid-template-rows:auto;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 300px auto;
     grid-gap: 5px;
     text-align: left;
     
 }
+.main1 button{
+    display: none;
+}
 .main1{
     text-align: center;
+    margin: 20% auto 0 auto;
 }
 .main1 ul{
     display: grid;
@@ -144,6 +152,7 @@ body{
         display: block;
         background-color: white;
         text-align: left;
+        margin: 20% auto 0 auto;
     }
     .main1 img{
         width: 100px;
@@ -153,20 +162,42 @@ body{
     }
     .main1 h3{
         text-align: left;
-        /* display: none; */
+        margin-left: 250px;
     }
-    .main p{
+    .main1 p{
         text-align: left;
-        margin-bottom: 0;
-        
+        margin-left: 250px;
     }
-    .main1 ul{
+    .main1 .menu ul{
         display: none;
+    }
+    /* .main1 .menu{
+        display: inline;
+    }
+    .main1 .menu:focus{
+        outline: none;
+    }
+    .main1 .menu-button{
+        float: left;
+    }
+    .main1 .menu:focus{
+        cursor: pointer;
+    }
+    .main1 .menu:focus .menu-button{
+        display: inline;
+    } */
+    
+    
+    .main1 .menu:focus ul a{
+        width: 200px;
+        display: grid;
+        margin: 0 0 0 0;
+        grid-template-columns: auto auto;
+        list-style-type: none;
     }
 }
 
 .grid-container .main1 ul{
-    /* display: grid; */
     padding-left: 0;
 }
 
@@ -175,9 +206,25 @@ body{
 }
 
 .main2{
-    margin: 0 20% 0 20%;
+    border: 2px #cecece solid;
+    padding: 8px 8px 8px 10%;
+    margin: 5% 5% 5% 0;
     text-align: left;
     overflow: hidden;
 }
-
+.main2 .bold{
+    font-weight: bold;
+}
+.main2 .section1 div{
+    display: block;
+}
+.main2 .section1 div p{
+    padding: 0 20% 0 10%;
+    display: inline-block;
+    line-height: 5px;
+    font-size: 1em;
+}
+.main2 .section1 div p a{
+    margin: 0 0 0 2px;
+}
 
