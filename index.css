@@ -1,7 +1,8 @@
-body{
+html{
     margin-top: 0px;
     margin: 0 10% 0 10%;
     background-color:#7a7873;
+    width:100%;
 }
 
 
@@ -23,6 +24,12 @@ body{
 }
 
 @media (max-width: 900px){
+    html{
+        margin-top: 0px;
+        margin: 0 auto 0 auto;
+        background-color:#7a7873;
+        width:100%;
+    }
     .grid-container .nav{
         display: grid;
         grid-template-rows: auto;
