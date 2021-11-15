@@ -86,11 +86,12 @@
 <script type="text/javascript">
     
     var xhr = new XMLHttpRequest();
+    var list = [];
     xhr.open("get","./test.json"); //url改成自己的请求地址
     xhr.send(null);
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
-            var list = JSON.parse(xhr.responseText);
+            list = JSON.parse(xhr.responseText);
             console.log(data);
         }
     }
