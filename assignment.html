@@ -92,8 +92,41 @@
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4 && xhr.status == 200) {
             list = JSON.parse(xhr.responseText);
-            list = list[key];
-            console.log(list);
+            // console.log(list);
+            for(var course = 1;course <= 12;course ++){
+            //5表示一周5天有课
+                for(var time = 1;time <= 7;time ++){
+                    var flag = 0;
+                    for(var i = 0;i < list.length;i ++){
+                        
+                        if(list[i]["上课节数"].includes(course) && list[i]["上课时间"] === Number(time)){
+                            console.log("sdf");
+                            var para = document.createElement("th");
+                            var text = document.createTextNode(list[i]["课程名称"]);
+                            para.id = "course" + course + "time" + time;
+                            var value1 = "getInfo('" + list[i]["课程名称"].toString() + "','" + para.id + "')";
+                            para.setAttribute("onmouseover",value1);
+                            var value2 = "hiddenInfo('" + list[i]["课程名称"].toString() + "','" + para.id + "')";
+                            para.setAttribute("onmouseout",value2);
+                            console.log(para);
+                            para.appendChild(text);
+                            var element = document.querySelector(".course" + course);
+                            element.appendChild(para);
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    if(flag == 0){
+                        var para = document.createElement("th");
+                        var text = document.createTextNode("");
+                        para.appendChild(text);
+                        var element = document.querySelector(".course" + course);
+                        // console.log(element);
+                        element.appendChild(para);
+                    }
+                }
+            }
+
         }
     }
     
@@ -206,44 +239,11 @@
     //通过list生成文档对象
     //12表示一天12节课
     // console.log(list2);
-    // console.log(list[0]);
+    console.log(list[0]);
     // console.log(list[0]);
     // console.log(list2[0]["上课节数"]);
     // console.log(list2[0]["上课时间"]);
-    for(var course = 1;course <= 12;course ++){
-        //5表示一周5天有课
-        for(var time = 1;time <= 7;time ++){
-            var flag = 0;
-            for(var i = 0;i < list.length;i ++){
-                
-                if(list[i]["上课节数"].includes(course) && list[i]["上课时间"] === Number(time)){
-                    console.log("sdf");
-                    var para = document.createElement("th");
-                    var text = document.createTextNode(list[i]["课程名称"]);
-                    para.id = "course" + course + "time" + time;
-                    var value1 = "getInfo('" + list[i]["课程名称"].toString() + "','" + para.id + "')";
-                    para.setAttribute("onmouseover",value1);
-                    var value2 = "hiddenInfo('" + list[i]["课程名称"].toString() + "','" + para.id + "')";
-                    para.setAttribute("onmouseout",value2);
-                    console.log(para);
-                    para.appendChild(text);
-                    var element = document.querySelector(".course" + course);
-                    element.appendChild(para);
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag == 0){
-                var para = document.createElement("th");
-                var text = document.createTextNode("");
-                para.appendChild(text);
-                var element = document.querySelector(".course" + course);
-                // console.log(element);
-                element.appendChild(para);
-            }
-        }
-    }
-
+    
     function getInfo(name,id){
         var par = document.querySelector("#view");
         for(var i = 0;i < list.length;i ++){
