@@ -1,0 +1,661 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>操作系统进程管理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3.html" />
+    
+    
+    <link rel="prev" href="1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    操作系统概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    操作系统进程管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    操作系统逻辑结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >操作系统进程管理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;">&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</h1>
+<h3 id="&#x8FDB;&#x7A0B;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;">&#x8FDB;&#x7A0B;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3>
+<p>&#x95EE;&#x9898;&#xFF1A;&#x7A0B;&#x5E8F;&#x5728;<strong>&#x5E76;&#x53D1;&#x73AF;&#x5883;</strong>&#x4E0B;<strong>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x4E0D;&#x786E;&#x5B9A;</strong></p>
+<p>&#x65B9;&#x6CD5;&#xFF1A;&#x5BF9;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x8FDB;&#x884C;<strong>&#x5236;&#x7EA6;</strong></p>
+<font color="red">&#x8FDB;&#x7A0B;&#x7684;&#x5B9A;&#x4E49;</font>
+
+<p>&#x7A0B;&#x5E8F;&#x5728;&#x67D0;&#x4E2A;<strong>&#x6570;&#x636E;&#x96C6;&#x5408;</strong>&#x4E0A;&#x7684;<strong>&#x4E00;&#x6B21;</strong>&#x8FD0;&#x884C;<strong>&#x6D3B;&#x52A8;</strong>&#xFF08;&#x4E09;&#x4E2A;&#x5173;&#x952E;&#x8BCD;&#xFF09;</p>
+<font color="red">&#x8FDB;&#x7A0B;&#x7684;&#x7279;&#x5F81;</font>
+
+<ul>
+<li>&#x52A8;&#x6001;&#x6027;&#xFF08;&#x6D3B;&#x52A8;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF09;</li>
+<li>&#x5E76;&#x53D1;&#x6027;&#xFF08;&#x8FDB;&#x7A0B;&#x548C;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x4E00;&#x8D77;&#x5411;&#x524D;&#x63A8;&#x8FDB;&#xFF09;</li>
+<li>&#x5F02;&#x6B65;&#x6027;&#xFF08;&#x8FDB;&#x7A0B;&#x6309;&#x7167;&#x81EA;&#x5DF1;&#x7684;&#x901F;&#x5EA6;&#x524D;&#x8FDB;&#xFF09;</li>
+<li>&#x72EC;&#x7ACB;&#x6027;&#xFF08;&#x8FDB;&#x7A0B;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;<strong>&#x5206;&#x914D;&#x8D44;&#x6E90;</strong>&#x548C;<strong>&#x8C03;&#x5EA6;CPU</strong>&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#xFF09;</li>
+</ul>
+<p>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x5206;&#x914D;CPU&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x5355;CPU&#x73AF;&#x5883;&#x4E0B;&#xFF0C;CPU&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x7528;&#x5206;&#x914D;&#x4E0D;&#x592A;&#x5408;&#x9002;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7C7B;&#x6BD4;&#x4EBA;&#x7684;&#x4E00;&#x751F;</p>
+<ul>
+<li>&#x52A8;&#x6001;&#x6027;&#xFF1A;&#x4EBA;&#x7684;&#x4E00;&#x751F;&#x7531;&#x5F88;&#x591A;&#x9636;&#x6BB5;&#xFF0C;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x90FD;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;</li>
+<li>&#x5E76;&#x53D1;&#x6027;&#xFF1A;&#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x5728;&#x65F6;&#x95F4;&#x4E0B;&#x6162;&#x6162;&#x63A8;&#x8FDB;</li>
+<li>&#x5F02;&#x6B65;&#x6027;&#xFF1A;&#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x6309;&#x7167;&#x7B26;&#x5408;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x5F0F;&#x524D;&#x8FDB;</li>
+</ul>
+<font color="red">&#x8FDB;&#x7A0B;&#x4E0E;&#x7A0B;&#x5E8F;&#x7684;&#x533A;&#x522B;</font>
+
+<ul>
+<li><p>&#x52A8;&#x6001;&#x4E0E;&#x9759;&#x6001;</p>
+<blockquote>
+<p>&#x8FDB;&#x7A0B;&#x662F;&#x7A0B;&#x5E8F;&#x5728;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;</p>
+<p>&#x7A0B;&#x5E8F;&#x662F;&#x6307;&#x4EE4;&#x7684;&#x96C6;&#x5408;</p>
+</blockquote>
+</li>
+<li><p>&#x6682;&#x5B58;&#x548C;&#x957F;&#x5B58;</p>
+<blockquote>
+<p>&#x8FDB;&#x7A0B;&#x4F1A;&#x6709;&#x521B;&#x5EFA;&#x548C;&#x6D88;&#x4EA1;&#x7684;&#x8FC7;&#x7A0B;</p>
+<p>&#x7A0B;&#x5E8F;&#x5728;&#x4ECB;&#x8D28;&#x4E0A;&#x957F;&#x671F;&#x4FDD;&#x5B58;</p>
+</blockquote>
+</li>
+<li><p>&#x7A0B;&#x5E8F;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;</p>
+<blockquote>
+<p>&#x4E00;&#x5BF9;&#x4E00;&#xFF1A;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x4E00;&#x6B21;</p>
+<p>&#x4E00;&#x5BF9;&#x591A;&#xFF1A;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x591A;&#x6B21;</p>
+<p>&#x591A;&#x5BF9;&#x4E00;&#xFF1A;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4EE5;&#x52A0;&#x8F7D;&#x4E0D;&#x540C;&#x7684;&#x7A0B;&#x5E8F;</p>
+<p>&#x591A;&#x5BF9;&#x591A;&#xFF1A;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x7A0B;&#x5E8F;</p>
+</blockquote>
+</li>
+</ul>
+<font color="red">&#x8FDB;&#x7A0B;&#x5206;&#x7C7B;</font>
+
+<p>&#x4E3B;&#x8981;&#x6309;&#x7167;&#x6743;&#x9650;&#x6765;&#x5206;&#x7C7B;&#xFF0C;&#x8FDB;&#x7A0B;&#x5206;&#x4E3A;</p>
+<ul>
+<li>&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;</li>
+<li>&#x7528;&#x6237;&#x8FDB;&#x7A0B;</li>
+</ul>
+<font color="red">&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;</font>
+
+<ul>
+<li><p>&#x8FD0;&#x884C;&#x6001;&#xFF1A;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU</p>
+</li>
+<li><p>&#x7B49;&#x5F85;&#x6001;&#xFF1A;&#x8FDB;&#x7A0B;&#x5177;&#x5907;&#x8FD0;&#x884C;&#x6761;&#x4EF6;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x5360;&#x7528;CPU</p>
+</li>
+<li><p>&#x963B;&#x585E;&#x6001;&#xFF1A;&#x8FDB;&#x7A0B;&#x56E0;&#x4E3A;<strong>&#x7B49;&#x5F85;&#x67D0;&#x9879;&#x670D;&#x52A1;&#x6216;&#x4FE1;&#x53F7;</strong>&#x4E0D;&#x80FD;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;</p>
+</li>
+</ul>
+<font color="red">&#x4E09;&#x79CD;&#x72B6;&#x6001;&#x7684;&#x8C03;&#x5EA6;</font>
+
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/IMG_0428(20211026-143135).PNG" alt="IMG_0428(20211026-143135)" style="zoom:50%;"></p>
+<p>&#x5C31;&#x7EEA;&#x5230;&#x8FD0;&#x884C;&#xFF1A;&#x8FDB;&#x7A0B;&#x8C03;&#x5EA6;</p>
+<p>&#x8FD0;&#x884C;&#x5230;&#x5C31;&#x7EEA;&#xFF1A;&#x65F6;&#x95F4;&#x7247;&#x5230;</p>
+<p>&#x8FD0;&#x884C;&#x5230;&#x963B;&#x585E;&#xFF1A;&#x8BF7;&#x6C42;&#x670D;&#x52A1;&#xFF0C;&#x7B49;&#x5F85;&#x4FE1;&#x53F7;</p>
+<p>&#x963B;&#x585E;&#x5230;&#x5C31;&#x7EEA;&#xFF1A;&#x670D;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x4FE1;&#x53F7;&#x5230;&#x8FBE;</p>
+<font color="red">&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x5757;&#xFF08;PCB&#xFF09;</font>
+
+<p>&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x5757;&#x662F;&#x4E00;&#x4E2A;<strong>&#x6570;&#x636E;&#x7ED3;&#x6784;</strong></p>
+<p>&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x8FDB;&#x7A0B;&#x7684;<strong>&#x72B6;&#x6001;</strong>&#x3001;<strong>&#x8D44;&#x6E90;</strong>&#x548C;<strong>&#x4E0E;&#x76F8;&#x5173;&#x8FDB;&#x7A0B;&#x7684;&#x5173;&#x7CFB;</strong>&#x3002;</p>
+<ul>
+<li>PCB&#x662F;&#x8FDB;&#x7A0B;&#x7684;<strong>&#x6807;&#x5FD7;</strong></li>
+</ul>
+<font color="red">&#x8FDB;&#x7A0B;=PCB+&#x4EE3;&#x7801;+&#x6570;&#x636E;</font>
+
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/1.jpg" alt="1"></p>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/5301DB0EEA936FD64EE4F84776D38AEC.png" alt="5301DB0EEA936FD64EE4F84776D38AEC" style="zoom:50%;"></p>
+<h3 id="&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x884C;&#x4E3A;">&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x884C;&#x4E3A;</h3>
+<font color="red">&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x662F;&#x4EC0;&#x4E48;</font>
+
+<ul>
+<li>&#x5728;&#x8FDB;&#x7A0B;&#x7684;&#x751F;&#x5B58;&#x671F;&#x4E2D;&#xFF0C;&#x5BF9;&#x8FDB;&#x7A0B;&#x5168;&#x90E8;&#x884C;&#x4E3A;&#x7684;&#x63A7;&#x5236;</li>
+</ul>
+<font color="red">&#x5178;&#x578B;&#x884C;&#x4E3A;</font>
+
+<ul>
+<li>&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</li>
+<li>&#x64A4;&#x9500;&#x8FDB;&#x7A0B;</li>
+<li>&#x963B;&#x585E;&#x8FDB;&#x7A0B;</li>
+<li>&#x5524;&#x9192;&#x8FDB;&#x7A0B;</li>
+</ul>
+<font color="red">&#x56DB;&#x5927;&#x884C;&#x4E3A;&#x7684;&#x89E3;&#x8BFB;</font>
+
+<ol>
+<li>&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</li>
+</ol>
+<blockquote>
+<p>&#x5B9E;&#x73B0;&#xFF08;&#x6240;&#x9700;&#x53C2;&#x6570;CPU&#x72B6;&#x6001;&#xFF0C;&#x5185;&#x5B58;&#x548C;&#x4F18;&#x5148;&#x7EA7;&#xFF09;</p>
+<ul>
+<li>&#x521B;&#x5EFA;PCB&#x8868;</li>
+<li>&#x8D4B;&#x4E88;&#x8FDB;&#x7A0B;&#x6807;&#x8BC6;&#x7B26;ID&#xFF08;&#x552F;&#x4E00;ID&#xFF09;</li>
+<li>&#x4E3A;&#x8FDB;&#x7A0B;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#xFF08;&#x4EE3;&#x7801;&#x7A7A;&#x95F4;+&#x6570;&#x636E;&#x7A7A;&#x95F4;+&#x5806;&#x6808;&#x7A7A;&#x95F4;&#xFF09;</li>
+<li>&#x521D;&#x59CB;&#x5316;PCB&#x8868;</li>
+<li>&#x63D2;&#x5165;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x8FDB;&#x7A0B;&#x961F;&#x5217;</li>
+</ul>
+<p>&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;<img src="https://gitee.com/ccnuktd/pic-bed/raw/master/image-20211117160117007.png" alt="image-20211117160117007"></p>
+</blockquote>
+<ol>
+<li>&#x64A4;&#x9500;&#x8FDB;&#x7A0B;</li>
+</ol>
+<blockquote>
+<p>&#x8FDB;&#x7A0B;&#x64A4;&#x9500;</p>
+<ul>
+<li>&#x56DE;&#x6536;&#x8D44;&#x6E90;</li>
+<li>&#x64A4;&#x9500;PCB</li>
+</ul>
+<p>&#x64A4;&#x9500;&#x65F6;&#x673A;</p>
+<ul>
+<li>&#x6B63;&#x5E38;&#x7ED3;&#x675F;</li>
+<li>&#x5F02;&#x5E38;&#x7ED3;&#x675F;</li>
+<li>&#x5916;&#x754C;&#x5E72;&#x9884;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#xFF08;&#x6240;&#x9700;&#x53C2;&#x6570;&#xFF1A;&#x8FDB;&#x7A0B;ID&#xFF09;</p>
+<ul>
+<li><p>&#x901A;&#x8FC7;ID&#x68C0;&#x7D22;PCB</p>
+</li>
+<li><p>&#x83B7;&#x53D6;PCB&#x72B6;&#x6001;</p>
+</li>
+<li><p>&#x901A;&#x8FC7;PCB&#x72B6;&#x6001;&#xFF08;&#x6BD4;&#x5982;&#x5982;&#x679C;&#x5728;&#x8FD0;&#x884C;&#x6001;&#xFF09;&#xFF0C;&#x6765;&#x7EC8;&#x6B62;&#x8FDB;&#x7A0B;</p>
+</li>
+</ul>
+<font color="red">&#x8FD9;&#x91CC;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5B50;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x5148;&#x64A4;&#x9500;&#x5B50;&#x8FDB;&#x7A0B;</font>
+
+<ul>
+<li><p>&#x91CA;&#x653E;PCB&#x8D44;&#x6E90;</p>
+</li>
+<li><p>&#x628A;PCB&#x4ECE;PCB&#x961F;&#x5217;&#x4E2D;&#x79FB;&#x9664;</p>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>&#x8FDB;&#x7A0B;&#x963B;&#x585E;</li>
+</ol>
+<blockquote>
+<p>&#x529F;&#x80FD;</p>
+<ul>
+<li>&#x505C;&#x6B62;&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;</li>
+</ul>
+<p>&#x963B;&#x585E;&#x7684;&#x65F6;&#x673A;</p>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/4.png" alt="4"></p>
+<p>&#x5B9E;&#x73B0;&#xFF08;&#x53C2;&#x6570;&#xFF1A;&#x963B;&#x585E;&#x539F;&#x56E0;&#xFF08;&#x4E0D;&#x540C;&#x539F;&#x56E0;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x963B;&#x585E;&#x961F;&#x5217;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x4E8E;&#x540C;&#x4E00;&#x963B;&#x585E;&#x961F;&#x5217;&#x7684;&#x8FDB;&#x7A0B;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7B56;&#x7565;&#xFF09;</p>
+<ul>
+<li>&#x505C;&#x6B62;&#x8FD0;&#x884C;</li>
+<li>&#x8FD0;&#x884C;&#x6001;&#x6539;&#x4E3A;&#x963B;&#x585E;&#x6001;</li>
+<li>&#x63D2;&#x5165;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x963B;&#x585E;&#x961F;&#x5217;</li>
+<li>&#x542F;&#x7528;&#x8C03;&#x5EA6;&#x7A0B;&#x5E8F;&#xFF08;&#x56E0;&#x4E3A;&#x6B64;&#x65F6;CPU&#x4EE5;&#x53CA;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x8FDB;&#x7A0B;&#x4E86;&#xFF09;</li>
+</ul>
+</blockquote>
+<p>4.&#x8FDB;&#x7A0B;&#x5524;&#x9192;</p>
+<blockquote>
+<p>&#x529F;&#x80FD;</p>
+<ul>
+<li>&#x628A;&#x963B;&#x585E;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x8FDB;&#x7A0B;&#x5524;&#x9192;</li>
+</ul>
+<p>&#x5524;&#x9192;&#x7684;&#x65F6;&#x673A;&#xFF08;&#x548C;&#x4E0A;&#x9762;&#x963B;&#x585E;&#x7684;&#x65F6;&#x673A;&#x521A;&#x597D;&#x76F8;&#x53CD;&#xFF09;</p>
+<ul>
+<li>&#x8BF7;&#x6C42;&#x7684;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x6EE1;&#x8DB3;</li>
+<li>&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#xFF08;I/O&#x5B8C;&#x6210;&#xFF09;</li>
+<li>&#x6570;&#x636E;&#x5230;&#x8FBE;</li>
+<li>&#x8FDB;&#x7A0B;&#x65B0;&#x5DE5;&#x4F5C;&#x5230;&#x6765;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#xFF08;&#x53C2;&#x6570;&#xFF1A;&#x8FDB;&#x7A0B;ID&#xFF09;</p>
+</blockquote>
+ <font color="red">&#x539F;&#x8BED;</font>
+
+<blockquote>
+<p>&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<ul>
+<li><p>&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x7279;&#x5B9A;&#x529F;&#x80FD;&#x7684;&#x51FD;&#x6570;</p>
+</li>
+<li><p>&#x5177;&#x6709;&#x539F;&#x5B50;&#x6027;&#xFF0C;&#x4E0D;&#x53EF;&#x5206;&#x5272;</p>
+</li>
+</ul>
+<p>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;&#xFF1F;</p>
+<ul>
+<li>&#x521A;&#x624D;&#x63D0;&#x5230;&#x7684;&#x56DB;&#x4E2A;&#x8FDB;&#x7A0B;&#x63A7;&#x5236;&#x884C;&#x4E3A;&#x5FC5;&#x987B;&#x90FD;&#x662F; <font color="red">&#x539F;&#x8BED;</font></li>
+</ul>
+</blockquote>
+<h3 id="windows&#x8FDB;&#x7A0B;&#x63A7;&#x5236;">Windows&#x8FDB;&#x7A0B;&#x63A7;&#x5236;</h3>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/3B63F6258C0AC275E59909154F8DC9DC.png" alt="3B63F6258C0AC275E59909154F8DC9DC"></p>
+<p>Windows&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;<strong>system</strong>&#xFF0C;<strong>WinExec</strong>&#x548C;<strong>ShellExecute</strong>&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x7A0B;&#x5E8F;&#x4E2D;&#x542F;&#x52A8;exe&#x7A0B;&#x5E8F;&#x3002;</p>
+<font color="red">&#x8FD9;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x662F;&#x5BF9;CreateProcess&#x7684;&#x5C01;&#x88C5;</font>
+
+<h4 id="&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;">&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</h4>
+<p>CreateProcess()</p>
+<blockquote>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;&#x5185;&#x6838;&#x5BF9;&#x8C61;&#xFF0C;&#x521B;&#x5EFA;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;</p>
+</li>
+<li><p>&#x88C5;&#x8F7D;EXE&#x548C;DLL&#x7684;&#x4EE3;&#x7801;&#x5230;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x4E2D;</p>
+</li>
+<li>&#x521B;&#x5EFA;&#x4E3B;&#x7EBF;&#x7A0B;&#x548C;&#x7EBF;&#x7A0B;&#x5185;&#x6838;&#x5BF9;&#x8C61;</li>
+<li>&#x542F;&#x52A8;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FDB;&#x5165;main&#x51FD;&#x6570;</li>
+</ul>
+</blockquote>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
+<span class="hljs-comment">//&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Windows&#x7684;&#x7A0B;&#x5E8F;CreateProcess&#x6765;&#x5B9E;&#x73B0;&#x542F;&#x52A8;&#x8FDB;&#x7A0B;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x53CC;&#x51FB;&#x56FE;&#x6807;&#xFF09;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    STARTUPINFO si = {<span class="hljs-keyword">sizeof</span>(si)};
+    PROCESS_INFORMATION pi;
+    TCHAR szCommandLine[] = <span class="hljs-string">&quot;C:\\Windows\\System32\\notepad.exe C:\\Users\\86187\\Desktop\\readme.txt&quot;</span>;
+    ::CreateProcess(<span class="hljs-literal">NULL</span>,szCommandLine,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,FALSE,<span class="hljs-number">0</span>,<span class="hljs-literal">NULL</span>,<span class="hljs-literal">NULL</span>,&amp;si,&amp;pi);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h4 id="&#x7ED3;&#x675F;&#x8FDB;&#x7A0B;">&#x7ED3;&#x675F;&#x8FDB;&#x7A0B;</h4>
+<p>ExitProcess()&#x6E29;&#x548C;&#x7684;&#x7ED3;&#x675F;</p>
+<p>TerminateProcess()&#x66B4;&#x529B;&#x7684;&#x7ED3;&#x675F;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x76F4;&#x63A5;&#x7528;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#x6765;kill</p>
+<h3 id="&#x4E34;&#x754C;&#x533A;&#x548C;&#x9501;">&#x4E34;&#x754C;&#x533A;&#x548C;&#x9501;</h3>
+<p><strong>&#x4E34;&#x754C;&#x8D44;&#x6E90;</strong>&#xFF1A;&#x4E00;&#x6B21;&#x53EA;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x72EC;&#x5360;&#x8BBF;&#x95EE;&#xFF08;&#x4F7F;&#x7528;&#xFF09;&#x7684;&#x8D44;&#x6E90;&#x3002;</p>
+<p><strong>&#x4E34;&#x754C;&#x533A;</strong>&#xFF1A;&#x8FDB;&#x7A0B;&#x4E2D;&#x8BBF;&#x95EE;&#x4E34;&#x754C;&#x8D44;&#x6E90;&#x7684;&#x7247;&#x6BB5;&#x3002;</p>
+<h4 id="&#x8BBE;&#x8BA1;&#x4E34;&#x754C;&#x533A;&#x8BBF;&#x95EE;&#x7684;&#x56DB;&#x4E2A;&#x539F;&#x5219;">&#x8BBE;&#x8BA1;&#x4E34;&#x754C;&#x533A;&#x8BBF;&#x95EE;&#x7684;&#x56DB;&#x4E2A;&#x539F;&#x5219;</h4>
+<ul>
+<li>&#x5FD9;&#x5219;&#x7B49;&#x5F85;</li>
+<li>&#x7A7A;&#x95F2;&#x8BA9;&#x8FDB;</li>
+<li>&#x6709;&#x9650;&#x7B49;&#x5F85;&#xFF08;&#x4E0D;&#x80FD;&#x4E00;&#x76F4;&#x9965;&#x997F;&#xFF09;</li>
+<li>&#x8BA9;&#x6743;&#x7B49;&#x5F85;&#xFF08;&#x5982;&#x679C;&#x67D0;&#x8FDB;&#x7A0B;&#x8BBF;&#x95EE;&#x4E34;&#x754C;&#x533A;&#x5931;&#x8D25;&#xFF0C;&#x4E0D;&#x80FD;&#x4E00;&#x76F4;&#x5360;&#x7740;CPU&#xFF0C;&#x5E94;&#x8BE5;&#x8BA9;&#x51FA;CPU&#x7ED9;&#x522B;&#x4EBA;&#x7528;&#xFF09;</li>
+</ul>
+<h4 id="&#x9501;">&#x9501;</h4>
+<p><strong>&#x9501;&#x7684;&#x5F15;&#x5165;</strong>&#x662F;&#x7528;&#x6765;&#x914D;&#x5408;&#x4E34;&#x754C;&#x533A;&#x3002;</p>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x8981;&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x67E5;&#x4E00;&#x4E0B;<strong>&#x4E34;&#x754C;&#x533A;&#x662F;&#x5426;&#x4E0A;&#x4E86;&#x9501;</strong>:</p>
+<ul>
+<li>&#x5982;&#x679C;&#x4E0A;&#x4E86;&#x9501;&#xFF0C;&#x8FDB;&#x7A0B;&#x5C31;&#x5FC5;&#x987B;&#x5728;&#x4E34;&#x754C;&#x533A;&#x5916;&#x9762;&#x7B49;&#x7740;&#xFF0C;&#x76F4;&#x5230;&#x9501;&#x89E3;&#x5F00;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x4E0A;&#x9501;&#xFF0C;&#x90A3;&#x8FDB;&#x7A0B;&#x5C31;<strong>&#x8FDB;&#x5165;&#x4E34;&#x754C;&#x533A;</strong>&#x7136;&#x540E;<strong>&#x518D;&#x4E0A;&#x9501;</strong>&#xFF1B;&#x79BB;&#x5F00;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x628A;&#x9501;&#x89E3;&#x5F00;</li>
+</ul>
+<p>&#x9501;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;bool&#x53D8;&#x91CF;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;0&#x8868;&#x793A;&#x4E0D;&#x53EF;&#x7528;&#xFF08;&#x5DF2;&#x7ECF;&#x4E0A;&#x9501;&#xFF09;&#xFF0C;1&#x8868;&#x793A;&#x53EF;&#x7528;&#xFF08;&#x8868;&#x793A;&#x6CA1;&#x6709;&#x4E0A;&#x9501;)</p>
+<p><strong>&#x4F2A;&#x4EE3;&#x7801;</strong></p>
+<font color="red">&#x4E0A;&#x9501;&#x64CD;&#x4F5C;&#xFF1A;</font>
+
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/9B2CCFDFF1CCC7B344BD7EB41C79CA99.png" alt="9B2CCFDFF1CCC7B344BD7EB41C79CA99" style="zoom:50%;"></p>
+<p>&#x8FD9;&#x4E2A;&#x9501;&#x53EB;&#x505A;&#x81EA;&#x65CB;&#x9501;&#xFF0C;&#x5F53;&#x8FDB;&#x7A0B;A&#x5360;&#x7740;&#x4E34;&#x754C;&#x533A;&#xFF08;S==0&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x8FDB;&#x7A0B;B&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x4E34;&#x754C;&#x533A;&#xFF0C;B&#x5C31;&#x8981;<strong>&#x67E5;&#x9501;(if S \== 0)</strong>&#xFF0C;&#x76F4;&#x5230;A&#x89E3;&#x9501;&#xFF08;S\==1&#xFF09;&#x3002;</p>
+<font color="red">&#x5F00;&#x9501;</font>
+
+<p>S = 1&#x5373;&#x53EF;&#x5F00;&#x9501;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x5B9E;&#x73B0;&#x6CA1;&#x6709;&#x8FD9;&#x4E48;&#x7B80;&#x5355;</p>
+<font color="red">&#x5177;&#x4F53;&#x4F8B;&#x5B50;</font>
+
+<pre><code class="lang-C++"><span class="hljs-keyword">int</span> S = <span class="hljs-number">1</span>; <span class="hljs-comment">//&#x4E00;&#x5F00;&#x59CB;&#x9501;&#x662F;&#x5F00;&#x7684;</span>
+<span class="hljs-comment">//&#x8FDB;&#x7A0B;1</span>
+lock();
+i = <span class="hljs-number">1</span>;
+...
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,i);
+unlock();
+</code></pre>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x8FDB;&#x7A0B;2</span>
+lock();
+i = <span class="hljs-number">0</span>;
+...
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,i);
+unlock();
+</code></pre>
+<h3 id="&#x540C;&#x6B65;&#x548C;&#x4E92;&#x65A5;&#x7684;&#x64CD;&#x4F5C;">&#x540C;&#x6B65;&#x548C;&#x4E92;&#x65A5;&#x7684;&#x64CD;&#x4F5C;</h3>
+<font color="red">&#x8FDB;&#x7A0B;&#x7684;&#x4E92;&#x65A5;</font>
+
+<p>&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x8BBF;&#x95EE;i&#x7684;&#x4F8B;&#x5B50;&#x5C31;&#x662F;&#x8FDB;&#x7A0B;&#x4E92;&#x65A5;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;<strong>&#x5171;&#x4EAB;</strong>&#x4E86;<strong>&#x72EC;&#x5360;&#x6027;&#x8D44;&#x6E90;</strong>&#xFF0C;&#x5FC5;&#x987B;&#x534F;&#x8C03;&#x987A;&#x5E8F;&#x5BF9;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x5B58;&#x53D6;&#xFF1B;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x6CA1;&#x6709;<strong>&#x4E24;&#x4E2A;&#x6216;&#x4EE5;&#x4E0A;</strong>&#x7684;&#x8FDB;&#x7A0B;&#x5BF9;&#x72EC;&#x5360;&#x6027;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x5B58;&#x53D6;&#x3002;&#x8FD9;&#x79CD;&#x5173;&#x7CFB;&#x53EB;&#x505A;<strong>&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x65A5;&#x5173;&#x7CFB;</strong>&#x3002;</p>
+<font color="red">&#x8FDB;&#x7A0B;&#x7684;&#x540C;&#x6B65;</font>
+
+<p>&#x82E5;&#x5E72;&#x5408;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E3A;&#x4E86;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x5171;&#x540C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x76F8;&#x4E92;&#x534F;&#x8C03;&#x987A;&#x5E8F;&#xFF1B;<strong>&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x8FD0;&#x884C;&#x5FC5;&#x987B;&#x9700;&#x8981;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;</strong>&#xFF0C;&#x5426;&#x5219;&#x524D;&#x9762;&#x7684;&#x8FDB;&#x7A0B;&#x53EA;&#x80FD;&#x7B49;&#x5F85;&#x3002;</p>
+<p><strong>&#x53F8;&#x673A;</strong>&#x548C;<strong>&#x552E;&#x7968;&#x5458;</strong>&#x4E4B;&#x95F4;&#x7684;&#x64CD;&#x4F5C;&#x5C5E;&#x4E8E;&#x540C;&#x6B65;&#x5173;&#x7CFB;</p>
+<p>&#x5047;&#x5982;&#x53F8;&#x673A;&#x7684;&#x52A8;&#x4F5C;&#x4E3A;&#xFF1A;&#x5F00;&#x8F66;&#xFF0C;&#x884C;&#x9A76;&#xFF0C;&#x505C;&#x8F66;</p>
+<p>&#x552E;&#x7968;&#x5458;&#x7684;&#x52A8;&#x4F5C;&#x4E3A;&#xFF1A;&#x5173;&#x95E8;&#xFF0C;&#x552E;&#x7968;&#xFF0C;&#x5F00;&#x95E8;</p>
+<p>&#x53F8;&#x673A;&#x548C;&#x552E;&#x7968;&#x5458;&#x7684;&#x52A8;&#x4F5C;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#xFF1A;</p>
+<ul>
+<li><p>&#x5173;&#x95E8;-&gt;&#x5F00;&#x8F66;</p>
+</li>
+<li><p>&#x505C;&#x8F66;-&gt;&#x5F00;&#x95E8;</p>
+</li>
+</ul>
+<p>&#x5982;&#x679C;&#x628A;&#x53F8;&#x673A;&#x548C;&#x552E;&#x7968;&#x5458;&#x5F53;&#x4F5C;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x540C;&#x6B65;&#x5173;&#x7CFB;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;<strong>&#x8FDB;&#x7A0B;&#x7684;&#x4E92;&#x65A5;</strong>&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x540C;&#x6B65;&#x5173;&#x7CFB;</p>
+<h3 id="pv&#x64CD;&#x4F5C;">PV&#x64CD;&#x4F5C;</h3>
+<h4 id="&#x4EC0;&#x4E48;&#x662F;&#x4FE1;&#x53F7;&#x706F;">&#x4EC0;&#x4E48;&#x662F;&#x4FE1;&#x53F7;&#x706F;</h4>
+<p>&#x4FE1;&#x53F7;&#x706F;&#xFF08;&#x7531;&#x8FEA;&#x6770;&#x7279;&#x65AF;&#x62C9;&#x63D0;&#x51FA;&#xFF09;</p>
+<h4 id="&#x4FE1;&#x53F7;&#x706F;&#x7528;&#x4E8E;&#x8FDB;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x539F;&#x7406;">&#x4FE1;&#x53F7;&#x706F;&#x7528;&#x4E8E;&#x8FDB;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x539F;&#x7406;</h4>
+<p>&#x4FE1;&#x53F7;&#x706F;&#x7684;&#x72B6;&#x6001;&#x4F1A;<strong>&#x963B;&#x585E;</strong>&#x6216;&#x8005;<strong>&#x5524;&#x9192;</strong>&#x8FDB;&#x7A0B;&#x3002;&#xFF08;&#x7EA2;&#x7EFF;&#x706F;&#x4F1A;&#x8BA9;&#x8F66;&#x5B50;<strong>&#x505C;&#x4E0B;</strong>&#x548C;<strong>&#x524D;&#x8FDB;</strong>&#xFF09;</p>
+<p>&#x8FDB;&#x7A0B;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x4FE1;&#x53F7;&#x706F;&#x7684;&#x72B6;&#x6001;&#x3002;&#xFF08;&#x7EA2;&#x7EFF;&#x706F;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF09;</p>
+<h4 id="&#x4FE1;&#x53F7;&#x706F;&#x7684;&#x5B9E;&#x73B0;">&#x4FE1;&#x53F7;&#x706F;&#x7684;&#x5B9E;&#x73B0;</h4>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/image-20211117160317390.png" alt="image-20211117160317390"></p>
+<h4 id="pv&#x64CD;&#x4F5C;">PV&#x64CD;&#x4F5C;</h4>
+<p>P&#x64CD;&#x4F5C;</p>
+<blockquote>
+<ol>
+<li>S --</li>
+<li>&#x5982;&#x679C;S&lt;0&#xFF0C;&#x628A;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x63D2;&#x5165;&#x5230;q&#x961F;&#x5217;&#xFF0C;&#x7136;&#x540E;&#x963B;&#x585E;&#x672C;&#x8FDB;&#x7A0B;&#xFF0C;</li>
+<li>&#x5982;&#x679C;S&gt;=0&#xFF0C;&#x8BE5;&#x8FDB;&#x7A0B;&#x7EE7;&#x7EED;</li>
+</ol>
+</blockquote>
+<pre><code class="lang-c++">P(){
+    S -= <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(s &lt; <span class="hljs-number">0</span>){
+        Insert(Caller,q);
+        Block(Caller);
+        schedule();<span class="hljs-comment">//&#x8F6C;&#x8C03;&#x5EA6;&#x51FD;&#x6570;</span>
+    }
+}
+</code></pre>
+<p>V&#x64CD;&#x4F5C;</p>
+<blockquote>
+<ol>
+<li>S ++</li>
+<li>&#x672C;&#x8FDB;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;</li>
+<li>&#x5982;&#x679C;S&lt;=0&#xFF0C;&#x518D;&#x4ECE;q&#x961F;&#x5217;&#x4E2D;&#x5524;&#x9192;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;</li>
+</ol>
+</blockquote>
+<pre><code class="lang-C++">V(){
+    S += <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(S &lt;= <span class="hljs-number">0</span>){
+        Remove(q,pud);
+        Wakeup(pid);
+    }
+}
+</code></pre>
+<h3 id="pv&#x64CD;&#x4F5C;&#x89E3;&#x51B3;&#x4E92;&#x65A5;&#x95EE;&#x9898;">PV&#x64CD;&#x4F5C;&#x89E3;&#x51B3;&#x4E92;&#x65A5;&#x95EE;&#x9898;</h3>
+<p>PV&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;<strong>&#x4E92;&#x65A5;</strong>&#x95EE;&#x9898;</p>
+<pre><code class="lang-c++">P();<span class="hljs-comment">//&#x76F8;&#x5F53;&#x4E8E;&#x4E0A;&#x9501;&#xFF0C;&#x56E0;&#x4E3A;P&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x963B;&#x585E;&#x81EA;&#x8EAB;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x9501;&#x7684;&#x81EA;&#x65CB;&#x72B6;&#x6001;&#xFF09;</span>
+
+i = <span class="hljs-number">1</span>;
+...
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,i);
+
+V();<span class="hljs-comment">//V&#x64CD;&#x4F5C;&#x4F1A;&#x5524;&#x9192;&#x8FDB;&#x7A0B;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x522B;&#x7684;&#x8FDB;&#x7A0B;&#x9501;&#x7684;&#x8BBF;&#x95EE;&#x6210;&#x529F;</span>
+</code></pre>
+<p>&#x4F46;&#x662F;PV&#x64CD;&#x4F5C;&#x4E2D;<strong>S&#x7684;&#x521D;&#x503C;</strong>&#x8BBE;&#x7F6E;&#x4E00;&#x5B9A;&#x8981;&#x5408;&#x7406;&#x3002;</p>
+<h3 id="pv&#x64CD;&#x4F5C;&#x89E3;&#x51B3;&#x540C;&#x6B65;&#x95EE;&#x9898;">PV&#x64CD;&#x4F5C;&#x89E3;&#x51B3;&#x540C;&#x6B65;&#x95EE;&#x9898;</h3>
+<p>PV&#x64CD;&#x4F5C;&#x89E3;&#x51B3;&#x540C;&#x6B65;&#x95EE;&#x9898;&#x7684;&#x5B9E;&#x8D28;</p>
+<p>&#x5F53;&#x8FDB;&#x7A0B;&#x4E0D;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x8BA9;&#x5B83;<strong>&#x7ACB;&#x5373;</strong>&#x505C;&#x4E0B;&#x6765;&#x3002;</p>
+<p>&#x5F53;&#x8FDB;&#x7A0B;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x5F0F;&#xFF0C;&#x7ECF;&#x5386;&#x8BA9;&#x5B83;<strong>&#x9A6C;&#x4E0A;&#x7EE7;&#x7EED;</strong>&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728;<strong>&#x5173;&#x952E;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;P&#x64CD;&#x4F5C;&#x6765;&#x963B;&#x585E;&#x4E0D;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x8FDB;&#x7A0B;</p>
+<p>&#x5728;<strong>&#x5173;&#x952E;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;V&#x64CD;&#x4F5C;&#x6765;&#x5524;&#x9192;&#x5408;&#x4F5C;&#x8FDB;&#x7A0B;</p>
+<h4 id="&#x4E09;&#x4E2A;&#x4F8B;&#x9898;&#x7684;&#x590D;&#x4E60;&#xFF1A;">&#x4E09;&#x4E2A;&#x4F8B;&#x9898;&#x7684;&#x590D;&#x4E60;&#xFF1A;</h4>
+<blockquote>
+<h4 id="&#x53F8;&#x673A;&#x552E;&#x7968;&#x5458;&#x95EE;&#x9898;">&#x53F8;&#x673A;&#x552E;&#x7968;&#x5458;&#x95EE;&#x9898;</h4>
+<h4 id="&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;">&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x95EE;&#x9898;</h4>
+<h4 id="&#x8BFB;&#x4E66;&#x7F16;&#x4E66;&#x95EE;&#x9898;">&#x8BFB;&#x4E66;&#x7F16;&#x4E66;&#x95EE;&#x9898;</h4>
+</blockquote>
+<h3 id="windows&#x8FDB;&#x7A0B;&#x63A7;&#x5236;">Windows&#x8FDB;&#x7A0B;&#x63A7;&#x5236;</h3>
+<h4 id="waitforxxxobject">WaitForXXXObject</h4>
+<blockquote>
+<p><code>WaitForMultipleObjects(&#x53C2;&#x6570;)</code></p>
+<p>&#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;&#x7B49;&#x5F85;<strong>&#x4E00;&#x7EC4;</strong>&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x53D8;&#x6210;<font color="red">&#x6709;&#x4FE1;&#x53F7;</font>&#x7684;&#x72B6;&#x6001;&#x540E;&#x8FD4;&#x56DE;</p>
+<p><code>WaitForSingleObjects(&#x53C2;&#x6570;)</code></p>
+<p>&#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;&#x7B49;&#x5F85;<strong>&#x4E00;&#x4E2A;</strong>&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x53D8;&#x6210;<font color="red">&#x6709;&#x4FE1;&#x53F7;</font>&#x7684;&#x72B6;&#x6001;&#x540E;&#x8FD4;&#x56DE;</p>
+</blockquote>
+<p>&#x5F53;&#x7EBF;&#x7A0B;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7EBF;&#x7A0B;&#x4F1A;&#x53D8;&#x6210;<font color="red">&#x6709;&#x4FE1;&#x53F7;</font>&#x7684;&#x72B6;&#x6001;</p>
+<h4 id="&#x7A0B;&#x5E8F;&#x5206;&#x6790;">&#x7A0B;&#x5E8F;&#x5206;&#x6790;</h4>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> S = <span class="hljs-number">0</span>;
+
+A(){
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">100</span>;i ++){
+        S ++;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E09;&#x4E2A;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x90FD;&#x662F;A&#x51FD;&#x6570;</span>
+    Thread1 = createThread(A);
+    Thread2 = createThread(A);
+    Thread3 = createThread(A);
+    WaitForMulitpleObject(&#x53C2;&#x6570;);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x5F53;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;S&#x7684;&#x503C;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;300&#xFF08;&#x5927;&#x6982;&#x7387;&#x4E0D;&#x662F;300&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;S++&#x8FD9;&#x4E2A;&#x8BED;&#x53E5;&#x4E0D;&#x662F;<strong>&#x539F;&#x8BED;</strong>&#xFF0C;&#x4E09;&#x4E2A;&#x7A0B;&#x5E8F;&#x5E76;&#x53D1;&#x6267;&#x884C;S++&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7ED3;&#x679C;&#x4F1A;&#x4E0D;&#x552F;&#x4E00;&#x3002;</p>
+<h4 id="&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1F;">&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1F;</h4>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/image-20211117160358574.png" alt="image-20211117160358574"></p>
+<blockquote>
+<ol>
+<li><p>&#x5B9A;&#x4E49;&#x4E34;&#x754C;&#x533A;&#x5BF9;&#x8C61;</p>
+</li>
+<li><p>&#x5C06;&#x72EC;&#x5360;&#x6027;&#x8D44;&#x6E90;&#x653E;&#x5165;&#x4E34;&#x754C;&#x533A;&#x5185;</p>
+</li>
+</ol>
+</blockquote>
+<p>&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x7ED3;&#x679C;&#x5C31;&#x53EF;&#x4EE5;&#x786E;&#x5B9A;&#x4E86;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.html" class="navigation navigation-prev " aria-label="Previous page: 操作系统概述">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3.html" class="navigation navigation-next " aria-label="Next page: 操作系统逻辑结构">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"操作系统进程管理","level":"1.3","depth":1,"next":{"title":"操作系统逻辑结构","level":"1.4","depth":1,"path":"3.md","ref":"3.md","articles":[]},"previous":{"title":"操作系统概述","level":"1.2","depth":1,"path":"1.md","ref":"1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2.md","mtime":"2021-11-17T08:04:24.854Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-17T08:20:56.041Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
