@@ -181,5 +181,12 @@ body{
 }
 
 #dropdown-menu{
+    padding-left: 0;
     display: none;
+}
+
+.main2{
+    text-align: center;
+    justify-content: center;
+    align-content: center;
 }
