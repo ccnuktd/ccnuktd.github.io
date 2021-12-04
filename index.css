@@ -147,7 +147,7 @@ body{
 }
 .main1{
     text-align: center;
-    margin: 20% auto 0 auto;
+    margin: 5% auto 0 auto;
 }
 .main1 ul{
     display: grid;
@@ -160,7 +160,7 @@ body{
         display: block;
         background-color: whitesmoke;
         text-align: left;
-        margin: 20% auto 0 auto;
+        margin: 0 auto 0 auto;
     }
     .main1 img{
         width: 100px;

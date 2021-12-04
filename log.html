@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./log.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
     <title>Document</title>
 </head>
 <body> 
@@ -17,18 +19,35 @@
                 <a href="./html/index.html"><span>音乐区</span></a>
             </div>
         </div>
-        <div>
-            <main>Ajax局部刷新的显示</main>
+        <div class="main">
+            <div class="main1">
+                <img src="./img/head.jpg" alt="头像" style="border-radius: 100px;" >
+                <div><h3>黄誉</h3></div>
+                <div><h3>华中师范大学</h3></div>
+                <div><p>计算机科学与技术2019级本科生&nbsp;&nbsp;</p></div>
+                <div class="dropdown">
+                    <button onclick="myFunction()">
+                      我的笔记
+                    </button>
+                    <ul id="dropdown-menu">
+                      <li>...1</li>
+                      <li>...2</li>
+                      <li>...3</li>
+                      <li>...4</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div>
-            <p><a href="http://47.107.71.141/%e6%88%91%e7%9a%84%e6%96%87%e7%ab%a0/">操作系统</a></p>
-            <p><a href="http://47.107.71.141/git%e4%bd%bf%e7%94%a8/">git使用</a></p>
-            <p><a href="http://47.107.71.141/c/">C++程序设计</a></p>
-            <p><a href="http://47.107.71.141/%e6%af%8f%e6%97%a5%e5%ad%a6%e4%b9%a0%e8%ae%b0%e5%bd%95/">每日一记</a></p>
-        </div>
-        <!-- <div>
-            <h1>页脚</h1>
-        </div> -->
     </div>
 </body> 
+<script>
+    function myFunction() {
+        var a = document.getElementById("dropdown-menu");
+        if(a.style.display === 'none'){
+            a.style.display = 'block';
+        }else{
+            a.style.display = 'none';
+        }
+    } 
+</script>
 </html>

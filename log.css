@@ -71,14 +71,15 @@ body{
     display: flex;
     border: 1.5em solid rgb(199, 199, 199);
 }
+.ribbon:before {
+    border-left-color: transparent;
+}
 
 .ribbon:after {
     border-right-color: transparent;
 }
 
-.ribbon:before {
-    border-left-color: transparent;
-}
+
 
 .ribbon a:link,
 .ribbon a:visited {
@@ -129,34 +130,56 @@ body{
     border-bottom: 0.5em solid #fff;
 }
 
-.grid-container > :nth-child(2){
+.main{
     grid-row-start: 2;
     grid-row-end: 5;
     grid-column-start: 1;
-    grid-column-end: 4;
-    background-color: orange;
+    grid-column-end: 5;
+    background-color:whitesmoke;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows:auto;
+    grid-template-columns: 300px auto;
     grid-gap: 5px;
+    text-align: left;
+    
+}
+.main1{
+    text-align: center;
+    margin: 5% auto 0 auto;
+}
+.main1 ul{
+    display: grid;
+    grid-template-columns: auto auto;
+    list-style-type: none;
 }
 
-.grid-container > :nth-child(3){
-    grid-row-start: 2;
-    grid-row-end: 5;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+@media (max-width: 900px) {
+    .main{
+        display: block;
+        background-color: whitesmoke;
+        text-align: left;
+        margin: 0 auto 0 auto;
+    }
+    .main1 img{
+        width: 100px;
+        margin-left: 20%;
+        /* 用float手机端显示有问题 */
+        float: left;
+    }
+    .main1 h3{
+        text-align: left;
+        margin-left: 250px;
+    }
+    .main1 p{
+        text-align: left;
+        margin-left: 250px;
+    }
 }
-.grid-container > :nth-child(3) p{
-    background-color: #fffbf3;
+
+.grid-container .main1 p{
+    font-size: 0.5em;
 }
-/* .grid-container > :nth-child(4){
-    grid-column-start: 1;
-    grid-column-end: 5;
-    background-color: blue;
-} */
+
+#dropdown-menu{
+    display: none;
+}
