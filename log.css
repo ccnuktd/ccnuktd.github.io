@@ -1,6 +1,6 @@
 body{
     margin-top: 0px;
-    margin: 0 10% 0 10%;
+    margin: 0 20% 0 20%;
     background-color:#7a7873;
     font-size: 16px;
     /* width:100%; */
@@ -24,7 +24,7 @@ body{
     /* position: fixed; */
 }
 
-@media (max-width: 900px){
+@media (max-width: 1000px){
     body{
         margin-top: 0px;
         margin: 0 auto 0 auto;
@@ -53,7 +53,7 @@ body{
 .grid-container .nav h1{
     margin-left: 10px;
     margin-top: 30px;
-    color: rgb(156, 156, 156);
+    color: rgb(26, 22, 22);;
 }
 .grid-container .ribbon {
     display: flex;
@@ -153,7 +153,7 @@ body{
     list-style-type: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .main{
         display: block;
         background-color: whitesmoke;
@@ -181,12 +181,47 @@ body{
 }
 
 #dropdown-menu{
+    list-style-type: none;
     padding-left: 0;
-    display: none;
+    
 }
+#dropdown-menu li{
+    background-color: #7a7873;
+    border-radius: 2px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+#dropdown-menu a {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    /* background-color: #000000; */
+}
+
+#dropdown-menu a:hover {
+    
+    color: white;
+}
+
+button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-radius: 2px;
+    font-size: 20px;
+}
+button:hover {
+    background-color: #000000; 
+    color: rgb(255, 255, 255);
+}
+
 
 .main2{
     text-align: center;
     justify-content: center;
     align-content: center;
+    margin: 0px 10px 0px 10px;
+    list-style-type: none;
 }

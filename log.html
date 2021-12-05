@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./log.css">
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
     <title>Document</title>
 </head>
 <body> 
@@ -25,21 +23,25 @@
                 <div><h3>黄誉</h3></div>
                 <div><h3>华中师范大学</h3></div>
                 <div><p>计算机科学与技术2019级本科生&nbsp;&nbsp;</p></div>
-                <div>
+                <div style="margin-bottom: 10px;">
                     <button onclick="myFunction()">
                       我的笔记
                     </button>
-                    <ul id="dropdown-menu">
-                      <li><a href="https://ccnuktd.github.io/OS">操作系统系列</a></li>
-                      <li><a href=""></a></li>
-                      <li><a href=""></a></li>
-                      <li><a href=""></a></li>
-                    </ul>
+                                      
                 </div>
             </div>
             <div class="main2">
-                <p>这里是笔记区，点击**我的笔记**按钮会可以选择笔记观看。</p>
-                <p>所有笔记都以gitbook的形式搭载在个人网站中。</p>
+                <ul id="dropdown-menu" style="display: none;">
+                    <li><a href="https://ccnuktd.github.io/OS">操作系统系列</a></li>
+                    <li><a href="https://ccnuktd.github.io/8086">微型计算机技术</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>  
+                <div id="content">
+                    <p>点击<strong>我的笔记</strong>按钮会可以选择笔记观看</p>
+                    <p>笔记都以Gitbook的形式搭载在个人网站中</p>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -47,10 +49,13 @@
 <script>
     function myFunction() {
         var a = document.getElementById("dropdown-menu");
+        var b = document.getElementById("content");
         if(a.style.display === 'none'){
             a.style.display = 'block';
+            b.style.display = 'none';
         }else{
             a.style.display = 'none';
+            b.style.display = 'block';
         }
     } 
 </script>
