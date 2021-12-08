@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <canvas id="jump"  width="960px" height="640px"></canvas>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var jump = document.getElementById("jump");
+        var ctx = jump.getContext("2d");
+
+
+        var xmax = jump.clientWidth;
+        var ymax = jump.clientHeight;
+
+        
+
+        class block{
+            //statement === 0 || 1
+            constructor(statement){
+                //statement = 0为左下角块，1右下角块
+                this.statement = statement;
+                this.height = 1 / 3 * ymax;
+                this.top = 2 / 3 * ymax;
+                this.length = random();
+                // console.log(this.length);
+                if(this.statement === 0){
+                    //左下角1/7处
+                    this.left = 1 / 7 * xmax;
+                    //random为随机生成的矩形长度
+                }else{
+                    //右下角1/7处
+                    this.left = 6 / 7 * xmax - this.length;           
+                }
+                this.middle = this.left + 1 / 2 * this.length;
+            }
+            leftMove(){
+                this.left --;
+                this.right --;
+                this.middle --;
+                
+            }
+            
+        }
+        class target{
+            constructor(Block,jumpHeight = 200){
+                this.jumpHeight = jumpHeight;
+        
+        
+                this.middle = Block.middle;
+                this.length = 80;
+
+                this.left = this.middle - 1 / 2 * this.length;
+                this.top = Block.top - this.length;
+                this.height = this.length;
+                
+            }
+            leftMove(){
+                this.left --;
+                this.right --;
+                this.middle --;
+                
+            }
+            moveCheck(){
+            
+            }
+            
+        }
+
+        var Width = jump.clientWidth;
+        // console.log(Width);
+        var dis = Width / 50;
+
+        //有关时间的帧
+        var lastframe = 0;
+        var fpstime = 0;
+        var framecount = 0;
+        var fps = 0;
+
+
+        var time = 0;//按空格的时间
+        var intervalID,lastID;
+        var flag = 0;//flag为1表示已经进入游戏
+
+
+        var leftBlock;
+        var rightBlock;
+        var Target;
+        var score;
+
+        function init(){
+            //键盘按下的事件监听
+            jump.addEventListener("keydown",keyDown);
+            jump.addEventListener("keyup",keyUp);
+            //对整个页面监听
+            document.onkeydown = keyDown;
+            document.onkeyup = keyUp;
+            score = 0;
+            leftBlock = new block(0);
+            rightBlock = new block(1);
+            Target = new target(leftBlock);
+            
+            drawFrame();
+            welcome();
+        }
+        function random(){
+            var number = Math.floor((Math.random() * 100) + 50)
+            if(score < 10){
+                return number + 150;
+            }else if(score < 25){
+                return number + 75;
+            }else{
+                return number;
+            }
+        }
+
+        function drawLeftBlock(){
+            ctx.fillStyle = "#000000";
+            // console.log(leftBlock.left);
+            // console.log(leftBlock.right);
+            ctx.fillRect(leftBlock.left,leftBlock.top,leftBlock.length,leftBlock.height);
+        }
+
+        function drawRightBlock(){
+            ctx.fillStyle = "#000000";
+            // console.log(rightBlock.left);
+            // console.log(rightBlock.right);
+            ctx.fillRect(rightBlock.left,rightBlock.top,rightBlock.length,rightBlock.height);
+        }
+
+        function drawTarget(){
+            
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(Target.left,Target.top,Target.length,Target.height);
+            
+        }
+
+        function clearTarget(){
+            // console.log("sdf");
+            ctx.fillStyle = "#e8eaec";
+            ctx.fillRect(Target.left - 3,Target.top - 3 - dis,Target.length + 6,Target.height + 6 + dis);
+            
+        }
+        var thirdBlock = undefined;
+        function drawThirdBlock(){
+            if(thirdBlock !== undefined){
+                ctx.fillStyle = "#000000";
+                ctx.fillRect(thirdBlock.left,thirdBlock.top,thirdBlock.length,thirdBlock.height);
+            }
+        }
+
+        function f(h,x){
+            var a = 16 / (5 * h) ;
+            var y = - a * x * (h - x);
+            return y;
+        }
+        
+        var timesRun = 0;
+        var deta_x = 0;
+        var yuan_top,yuan_left;
+        var JumpDis;
+        function targetJump(jumpDis){
+            yuan_top = Target.top;
+            yuan_left = Target.left;
+            timesRun = 0;
+            deta_x = 0;
+            JumpDis = jumpDis;
+            // console.log(JumpDis);
+            var t = setInterval(function(){
+                // console.log("lastTop:" + Target.top);
+                // console.log("lastLeft:" + Target.left);
+                // console.log(jumpDis);
+                timesRun += 1;
+                deta_x += JumpDis / 60;
+                Target.top = yuan_top + f(JumpDis,deta_x);
+                Target.left = yuan_left + deta_x;
+                Target.middle = Target.left + 0.5 * Target.length; 
+                // console.log(Target.top);
+                // console.log(Target.left);
+                // console.log(deta_x);
+                if(timesRun === 60){
+                    Target.top = yuan_top;
+                    clearInterval(t);
+                    isFail();
+                }
+            },5);
+        }
+        var sentence = undefined;
+        function setPrice(sen){
+            sentence = sen;
+        }
+
+        function price(){
+            //不能显示，会不会是因为被刷掉了
+            if(sentence !== undefined){
+                if(sentence === "good."){
+                    ctx.fillStyle = "#000000";
+                }else if(sentence === "safe and perfect!"){
+                    ctx.fillStyle = "#FF69B4";
+                }else{
+                    ctx.fillStyle = "#FFD700";
+                }
+                ctx.fillText(sentence,300,150);
+                // console.log("give price!");
+                
+            }
+            
+        }
+
+        function getPrice(){
+            if(Target.middle > rightBlock.left){
+                if(Target.left < rightBlock.left){
+                    setPrice("dangerous but excellent!");
+                    score += 3;
+                }else if(Target.middle > rightBlock.left + rightBlock.length * 0.4 && Target.middle < rightBlock.left + rightBlock.length * 0.6){
+                    setPrice("safe and perfect!");
+                    score += 2;
+                }else{
+                    setPrice("good.");
+                    score += 1;
+                }
+                //画面移动
+                move();
+            }
+        }
+        
+        function move(){
+            thirdBlock = new block(1);
+            thirdBlock.left += rightBlock.left - 1/7 * Width;
+            var t = setInterval(function(){
+                leftBlock.leftMove();
+                rightBlock.leftMove();
+                Target.leftMove();
+                thirdBlock.leftMove();
+                if(rightBlock.left < 1 / 7 * Width){
+                    rightBlock.statement = 0;
+                    leftBlock = rightBlock;
+                    rightBlock = thirdBlock;
+                    thirdBlock = undefined;
+                    clearInterval(t);
+                }
+            },2);
+            
+        }
+
+        var restart = 0;
+        function isFail(){
+            if(Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length){
+                restart = 1;
+                alert("fail");
+            }else{
+                //奖励行为
+                getPrice();
+            }
+        }
+
+        
+        function showScore(jumpDis){  
+            var waitTime = 0;
+            var t = setInterval(function(){
+                waitTime += 1;
+                //显示3s分数
+                ctx.font = "50px Microsoft YaHei";
+                //纯色填充
+                ctx.fillStyle = '#e8eaec';
+                ctx.fillRect(280, 100, 400, 200);
+                ctx.fillStyle = "#000000";
+                // cxt.clearRect(0,0,c.width,c.height);
+                ctx.fillText("你的分数: " + score,380,150);
+
+                ctx.fillStyle = "#000000";
+                ctx.fillText(4 - waitTime + "秒后跳转",400,250);
+
+                if(waitTime === 4){
+                    clearInterval(t);
+                    init();
+                }
+            },1000);
+        }
+
+        function targetDown(){
+            var waitTime = 0;
+            var t = setInterval(function(){
+                waitTime += 1;
+                //clear需要clear上一个draw，而上一个draw已经加了dis，所以写clear要注意
+                clearTarget();
+                drawTarget();
+                Target.top += dis;
+                if(waitTime === 30){
+                    clearInterval(t);
+                }
+            },15);
+        }
+
+        var animation;
+        var lastTime;
+        function main(tframe){
+            render();
+            drawLeftBlock();
+            drawRightBlock();
+            drawTarget();
+            drawThirdBlock();
+            
+            
+            var staticTime = time;
+            if(lastTime === staticTime){
+                console.log("time:" + time);
+                //游戏内容
+                var jumpDis = dis * time;
+                var jumpHeight = 0.8 * jumpDis;
+                // console.log(Target.middle);
+                targetJump(jumpDis);
+                // console.log(Target.top);
+                // console.log(Target.left);
+                // console.log(Target.middle);
+                //保证长按产生新的keydown，time不会一直加
+                lastTime = undefined;
+                time = 0;
+            }else if(time !== 0){
+                //time的刷新
+                lastTime = staticTime;
+            }
+            
+            update(tframe);
+            //main结束时调用requestAnimationFrame重新执行main
+            if(!restart) animation = window.requestAnimationFrame(main);
+            else{
+                restart = 0;
+                window.cancelAnimationFrame(animation);
+                targetDown();
+                showScore();
+                animation = undefined;
+                flag = 0;
+                
+            }     
+            
+                
+        }
+        
+        function welcome(){
+            ctx.font = "50px Microsoft YaHei";
+            ctx.fillStyle = "#000000";
+            ctx.fillText("跳一跳",400,150);
+            ctx.font = "30px Microsoft YaHei";
+            ctx.fillText("按住空格键跳跃，根据按住空格键的时间来反映跳远距离。",130,350);
+            ctx.fillText("Enter回车开始游戏！",350,550);
+        }
+
+        //处理按键
+        function keyDown(e){
+            // alert("keydown");
+            var keyNum = window.event ? e.keyCode : e.which;
+            //32为空格
+            if(keyNum == 32){
+                intervalID = setInterval(timer,10);
+                
+                // alert(intervalID);
+            }else{
+                //13为回车
+                if(keyNum == 13 && !flag){
+                    //介绍动画
+                    //想法：可以设置一个定时器再进入main
+                    //进入游戏
+                    main(0);
+                    flag = 1;
+                }
+            }
+        }
+        function keyUp(e){
+            var keyNum = window.event ? e.keyCode : e.which;
+            if(keyNum == 32){
+                clearInterval(lastID);
+                lastID = undefined;
+            }
+        }
+        //处理时间
+        function timer(){
+            if(lastID === undefined){
+                lastID = intervalID;
+            }else if(intervalID !== lastID){
+                clearInterval(intervalID);
+                return ;
+            }
+            // console.log(time);
+            time ++;
+            
+        }
+
+
+        function update(tframe){
+            var dt = (tframe - lastframe) / 1000;
+            lastframe = tframe;
+            updateFps(dt);
+        }
+        function updateFps(dt) {
+            if (fpstime > 0.25) {
+                //计算帧数
+                fps = Math.round(framecount / fpstime);
+    
+                //重置时间
+                fpstime = 0;
+                framecount = 0;
+            }
+    
+            //增加帧时间、帧数
+            fpstime += dt;
+            framecount++;
+        }
+        // 渲染（更新画布）
+        function render() {
+            drawFrame();
+            ctx.font = "30px Microsoft YaHei";
+            ctx.fillStyle = "#000000";
+            ctx.fillText("score: " + score, jump.width - 150,120);
+            price(sentence);
+        }
+ 
+        // 
+        function drawFrame() {
+            // 背景、边界
+            ctx.fillStyle = "#d0d0d0";
+            ctx.fillRect(0, 0, jump.width, jump.height);
+            ctx.fillStyle = "#e8eaec";
+            ctx.fillRect(1, 1, jump.width-2, jump.height-2);
+    
+            // 标题头
+            ctx.fillStyle = "#303030";
+            ctx.fillRect(0, 0, jump.width, 65);
+    
+            // 标题
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "24px Verdana";
+            ctx.fillText("JS画布游戏 - 跳一跳", 10, 30);
+    
+            // 显示帧数
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "12px Verdana";
+            ctx.fillText("Fps: " + fps, 13, 50);
+        }
+
+        init();
+    }
+</script>
+</html>
