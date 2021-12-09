@@ -24,7 +24,7 @@ body{
     /* position: fixed; */
 }
 
-@media (max-width: 900px){
+@media (max-width: 910px){
     body{
         margin-top: 0px;
         margin: 0 auto 0 auto;
@@ -155,7 +155,7 @@ body{
     list-style-type: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 910px) {
     .main{
         display: block;
         background-color: whitesmoke;
