@@ -103,7 +103,7 @@
             leftBlock = new block(0);
             rightBlock = new block(1);
             Target = new target(leftBlock);
-            
+            animation = 1;
             drawFrame();
             welcome();
         }
@@ -300,7 +300,7 @@
             },15);
         }
 
-        var animation;
+        var animation = 1;
         var lastTime;
         //浏览器帧数控制
         var controlfps = 60;
@@ -341,9 +341,9 @@
                 restart = 0;
                 flag = 0;
                 window.cancelAnimationFrame(animation);
+                animation = undefined;
                 targetDown();
                 showScore();
-                animation = undefined;
             }       
         }
         
@@ -362,20 +362,23 @@
             // alert("keydown");
             var keyNum = window.event ? e.keyCode : e.which;
             //32为空格
-            if(keyNum == 32){
-                if(NoJump == 1) return;
-                intervalID = setInterval(timer,10);
-                // alert(intervalID);
-            }else{
-                //13为回车
-                if(keyNum == 13 && !flag ){
-                    //介绍动画
-                    //想法：可以设置一个定时器再进入main
-                    //进入游戏
-                    main(0);
-                    flag = 1;
+            if(animation !== undefined){
+                if(keyNum == 32){
+                    if(NoJump == 1) return;
+                    intervalID = setInterval(timer,10);
+                    // alert(intervalID);
+                }else{
+                    //13为回车
+                    if(keyNum == 13 && !flag ){
+                        //介绍动画
+                        //想法：可以设置一个定时器再进入main
+                        //进入游戏
+                        main(0);
+                        flag = 1;
+                    }
                 }
             }
+            
         }
         function keyUp(e){
             var keyNum = window.event ? e.keyCode : e.which;
