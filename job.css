@@ -1,0 +1,238 @@
+body{
+    margin-top: 0px;
+    margin: 0 10% 0 10%;
+    background-color:#7a7873;
+    font-size: 16px;
+    /* width:100%; */
+}
+
+
+.grid-container{
+    
+    display: grid;
+    grid-template-rows:100px auto auto auto;
+    grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
+    grid-gap: 5px;
+    /* min-width: 850px; */
+}
+
+.grid-container > :nth-child(1){
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* position: fixed; */
+}
+
+@media (max-width: 910px){
+    body{
+        margin-top: 0px;
+        margin: 0 auto 0 auto;
+        background-color:#7a7873;
+        /* width:100%; */
+    }
+    .grid-container .nav{
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto !important;
+        /* background-image: url(./img/nav.png); */
+        /* background-size: cover; */
+    }
+    .grid-container .nav h1{
+        display: none !important;
+    }
+}
+    
+.grid-container .nav{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+    /* background-image: url(./img/nav.png); */
+    /* background-size: cover; */
+}
+.grid-container .nav h1{
+    margin-left: 10px;
+    margin-top: 30px;
+    color: rgb(26, 22, 22);
+}
+.grid-container .ribbon {
+    display: flex;
+    justify-content: center;
+    /* position: absolute; */
+    /* right: 300px; */
+    top: 50px;
+    align-items: center;
+}
+
+.ribbon:after,
+.ribbon:before {
+    margin-top: 0.5em;
+    content: "";
+    display: flex;
+    border: 1.5em solid rgb(199, 199, 199);
+}
+
+.ribbon:after {
+    border-right-color: transparent;
+}
+
+.ribbon:before {
+    border-left-color: transparent;
+}
+
+.ribbon a:link,
+.ribbon a:visited {
+    color: #000;
+    text-decoration: none;
+    height: 3.5em;
+    overflow: hidden;
+}
+
+.ribbon span {
+    background: rgb(199, 199, 199);
+    display: inline-block;
+    line-height: 3em;
+    padding: 0 1.5em;
+    margin-top: 0.5em;
+    position: relative;
+    -webkit-transition: background-color 0.2s, margin-top 0.2s;
+    /* Saf3.2+, Chrome */
+    -moz-transition: background-color 0.2s, margin-top 0.2s;
+    /* FF4+ */
+    -ms-transition: background-color 0.2s, margin-top 0.2s;
+    /* IE10 */
+    -o-transition: background-color 0.2s, margin-top 0.2s;
+    /* Opera 10.5+ */
+    transition: background-color 0.2s, margin-top 0.2s;
+}
+
+.ribbon a:hover span {
+    background: #fffbf3;
+    margin-top: 0px;
+}
+
+.ribbon span:before {
+    content: "";
+    position: absolute;
+    top: 3em;
+    left: 0;
+    border-right: 0.5em solid #cecece;
+    border-bottom: 0.5em solid #fff;
+}
+
+.ribbon span:after {
+    content: "";
+    position: absolute;
+    top: 3em;
+    right: 0;
+    border-left: 0.5em solid #cecece;
+    border-bottom: 0.5em solid #fff;
+}
+
+.main{
+    grid-row-start: 2;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    background-color:whitesmoke;
+    display: grid;
+    grid-template-rows:auto;
+    grid-template-columns: 200px auto;
+    grid-gap: 5px;
+    text-align: left;
+    
+}
+.main1 button{
+    display: none;
+}
+.main1{
+    text-align: center;
+    margin: 5% auto 0 auto;
+}
+.main1 ul{
+    display: grid;
+    grid-template-columns: auto auto;
+    list-style-type: none;
+}
+
+@media (max-width: 910px) {
+    .main{
+        display: block;
+        background-color: whitesmoke;
+        text-align: left;
+        margin: 0 auto 0 auto;
+    }
+    .main1 img{
+        width: 100px;
+        margin-left: 20%;
+        /* 用float手机端显示有问题 */
+        float: left;
+    }
+    .main1 h3{
+        text-align: left;
+        margin-left: 250px;
+    }
+    .main1 p{
+        text-align: left;
+        margin-left: 250px;
+    }
+    .main1 .menu ul{
+        display: none;
+    }
+    /* .main1 .menu{
+        display: inline;
+    }
+    .main1 .menu:focus{
+        outline: none;
+    }
+    .main1 .menu-button{
+        float: left;
+    }
+    .main1 .menu:focus{
+        cursor: pointer;
+    }
+    .main1 .menu:focus .menu-button{
+        display: inline;
+    } */
+    
+    
+    .main1 .menu:focus ul a{
+        width: 200px;
+        display: grid;
+        margin: 0 0 0 0;
+        grid-template-columns: auto auto;
+        list-style-type: none;
+    }
+}
+
+.grid-container .main1 ul{
+    padding-left: 0;
+}
+
+.grid-container .main1 p{
+    font-size: 0.5em;
+}
+
+.main2{
+    border: 2px #cecece solid;
+    padding: 5% 5% 5% 5%;
+    margin: 5% 5% 5% 5%;
+    text-align: left;
+    overflow: hidden;
+}
+.main2 .bold{
+    font-weight: bold;
+}
+.main2 .section1 div{
+    display: block;
+}
+.main2 .section1 div p{
+    padding: 0 20% 0 10%;
+    display: inline-block;
+    line-height: 5px;
+    font-size: 1em;
+}
+.main2 .section1 div p a{
+    margin: 0 0 0 2px;
+}
+
