@@ -52,15 +52,12 @@
         class target{
             constructor(Block,jumpHeight = 200){
                 this.jumpHeight = jumpHeight;
-        
-        
                 this.middle = Block.middle;
                 this.length = 80;
 
                 this.left = this.middle - 1 / 2 * this.length;
                 this.top = Block.top - this.length;
                 this.height = this.length;
-                
             }
             leftMove(){
                 this.left --;
@@ -136,10 +133,8 @@
         }
 
         function drawTarget(){
-            
             ctx.fillStyle = "#FF0000";
             ctx.fillRect(Target.left,Target.top,Target.length,Target.height);
-            
         }
 
         function clearTarget(){
@@ -157,7 +152,7 @@
         }
 
         function f(h,x){
-            var a = 8 / (5 * h) ;
+            var a = 16 / (5 * h) ;
             var y = - a * x * (h - x);
             return y;
         }
@@ -187,6 +182,7 @@
                 // console.log(deta_x);
                 if(timesRun === 60){
                     Target.top = yuan_top;
+                    NoJump = 0;
                     clearInterval(t);
                     isFail();
                 }
@@ -235,6 +231,7 @@
             thirdBlock = new block(1);
             thirdBlock.left += rightBlock.left - 1/7 * Width;
             var t = setInterval(function(){
+                NoJump = 1;
                 leftBlock.leftMove();
                 rightBlock.leftMove();
                 Target.leftMove();
@@ -244,6 +241,7 @@
                     leftBlock = rightBlock;
                     rightBlock = thirdBlock;
                     thirdBlock = undefined;
+                    NoJump = 0;
                     clearInterval(t);
                 }
             },2);
@@ -252,7 +250,10 @@
 
         var restart = 0;
         function isFail(){
-            if(Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length){
+            if(thirdBlock === undefined &&(Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length)){
+                restart = 1;
+                alert("fail");
+            }else if(thirdBlock !== undefined && (Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || (Target.middle > rightBlock.left + rightBlock.length && Target.middle < thirdBlock.left) || Target.middle > thirdBlock.left + thirdBlock.length)){
                 restart = 1;
                 alert("fail");
             }else{
@@ -310,7 +311,6 @@
             drawTarget();
             drawThirdBlock();
             
-            
             var staticTime = time;
             if(lastTime === staticTime){
                 console.log("time:" + time);
@@ -334,18 +334,16 @@
             //main结束时调用requestAnimationFrame重新执行main
             if(!restart) {
                 setTimeout(function() {
-                    animation = window.requestAnimationFrame(main);
-            　　　　 
+                    animation = window.requestAnimationFrame(main);　　 
             　　}, 1000 / controlfps);
-                
             }
             else{
                 restart = 0;
+                flag = 0;
                 window.cancelAnimationFrame(animation);
                 targetDown();
                 showScore();
                 animation = undefined;
-                flag = 0;
             }       
         }
         
@@ -359,17 +357,18 @@
         }
 
         //处理按键
+        var NoJump = 0;
         function keyDown(e){
             // alert("keydown");
             var keyNum = window.event ? e.keyCode : e.which;
             //32为空格
             if(keyNum == 32){
+                if(NoJump == 1) return;
                 intervalID = setInterval(timer,10);
-                
                 // alert(intervalID);
             }else{
                 //13为回车
-                if(keyNum == 13 && !flag){
+                if(keyNum == 13 && !flag ){
                     //介绍动画
                     //想法：可以设置一个定时器再进入main
                     //进入游戏
@@ -391,14 +390,13 @@
                 lastID = intervalID;
             }else if(intervalID !== lastID){
                 clearInterval(intervalID);
+                
                 return ;
             }
             // console.log(time);
+            NoJump = 1;
             time ++;
-            
         }
-
-
         function update(tframe){
             var dt = (tframe - lastframe) / 1000;
             lastframe = tframe;
