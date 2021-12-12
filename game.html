@@ -301,6 +301,8 @@
 
         var animation;
         var lastTime;
+        //浏览器帧数控制
+        var controlfps = 60;
         function main(tframe){
             render();
             drawLeftBlock();
@@ -330,7 +332,13 @@
             
             update(tframe);
             //main结束时调用requestAnimationFrame重新执行main
-            if(!restart) animation = window.requestAnimationFrame(main);
+            if(!restart) {
+                setTimeout(function() {
+                    animation = window.requestAnimationFrame(main);
+            　　　　 
+            　　}, 1000 / controlfps);
+                
+            }
             else{
                 restart = 0;
                 window.cancelAnimationFrame(animation);
@@ -338,10 +346,7 @@
                 showScore();
                 animation = undefined;
                 flag = 0;
-                
-            }     
-            
-                
+            }       
         }
         
         function welcome(){
