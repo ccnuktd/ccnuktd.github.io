@@ -182,6 +182,7 @@
                     isFail();
                 }
             },5);
+            //需要修改
         }
         var sentence = undefined;
         function setPrice(sen){
@@ -300,9 +301,9 @@
         }
 
         var animation = 1;
-        var lastTime;
+        var lastTime = undefined;
         //浏览器帧数控制
-        var controlfps = 100;
+        //var controlfps = 100;
         function main(tframe){
             render();
             drawLeftBlock();
@@ -315,7 +316,7 @@
                 console.log("time:" + time);
                 //游戏内容
                 var jumpDis = dis * time;
-                var jumpHeight = 0.8 * jumpDis;
+                //var jumpHeight = 0.8 * jumpDis;
                 // console.log(Target.middle);
                 targetJump(jumpDis);
                 // console.log(Target.top);
@@ -332,9 +333,9 @@
             update(tframe);
             //main结束时调用requestAnimationFrame重新执行main
             if(!restart) {
-                setTimeout(function() {
+                //setTimeout(function() {
                     animation = window.requestAnimationFrame(main);　　 
-            　　}, 1000 / controlfps);
+            　　//}, 1000 / controlfps);
             }
             else{
                 restart = 0;

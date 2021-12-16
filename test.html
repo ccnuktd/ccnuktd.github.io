@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <canvas id="jump"  width="960px" height="640px"></canvas>
+    </div>
+</body>
+<script>
+    function main(){
+        var a = 0;
+        animation = window.requestAnimationFrame(main);　
+        var kk = setInterval(function(){
+            a ++;
+            console.log(a);
+        },1);
+        setTimeout(function(){
+            window.cancelAnimationFrame(kk);
+        },20);
+        
+    }
+</script>
