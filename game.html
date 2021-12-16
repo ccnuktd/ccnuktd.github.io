@@ -169,17 +169,12 @@
             JumpDis = jumpDis;
             // console.log(JumpDis);
             var t = setInterval(function(){
-                // console.log("lastTop:" + Target.top);
-                // console.log("lastLeft:" + Target.left);
-                // console.log(jumpDis);
                 timesRun += 1;
                 deta_x += JumpDis / 60;
                 Target.top = yuan_top + f(JumpDis,deta_x);
                 Target.left = yuan_left + deta_x;
                 Target.middle = Target.left + 0.5 * Target.length; 
-                // console.log(Target.top);
-                // console.log(Target.left);
-                // console.log(deta_x);
+
                 if(timesRun === 60){
                     Target.top = yuan_top;
                     NoJump = 0;
@@ -194,7 +189,6 @@
         }
 
         function price(){
-            //不能显示，会不会是因为被刷掉了
             if(sentence !== undefined){
                 if(sentence === "good."){
                     ctx.fillStyle = "#000000";
@@ -211,8 +205,8 @@
         }
 
         function getPrice(){
-            if(Target.middle > rightBlock.left){
-                if(Target.left < rightBlock.left){
+            if(Target.middle > rightBlock.left && Target.middle < rightBlock.left + rightBlock.length){
+                if(Target.left < rightBlock.left || Target.left + Target.left + Target.length < rightBlock.left + rightBlock.length){
                     setPrice("dangerous but excellent!");
                     score += 3;
                 }else if(Target.middle > rightBlock.left + rightBlock.length * 0.4 && Target.middle < rightBlock.left + rightBlock.length * 0.6){
@@ -230,8 +224,9 @@
         function move(){
             thirdBlock = new block(1);
             thirdBlock.left += rightBlock.left - 1/7 * Width;
-            var t = setInterval(function(){
-                NoJump = 1;
+            NoJump = 1;
+            let t = setInterval(function(){
+                
                 leftBlock.leftMove();
                 rightBlock.leftMove();
                 Target.leftMove();
@@ -241,6 +236,7 @@
                     leftBlock = rightBlock;
                     rightBlock = thirdBlock;
                     thirdBlock = undefined;
+                    //可以跳跃了
                     NoJump = 0;
                     clearInterval(t);
                 }
@@ -253,10 +249,12 @@
             if(thirdBlock === undefined &&(Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length)){
                 restart = 1;
                 alert("fail");
-            }else if(thirdBlock !== undefined && (Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || (Target.middle > rightBlock.left + rightBlock.length && Target.middle < thirdBlock.left) || Target.middle > thirdBlock.left + thirdBlock.length)){
-                restart = 1;
-                alert("fail");
-            }else{
+            }
+            // else if(thirdBlock !== undefined && (Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || (Target.middle > rightBlock.left + rightBlock.length && Target.middle < thirdBlock.left) || Target.middle > thirdBlock.left + thirdBlock.length)){
+            //     restart = 1;
+            //     alert("fail");
+            // }
+            else{
                 //奖励行为
                 getPrice();
             }
@@ -264,14 +262,15 @@
 
         
         function showScore(jumpDis){  
-            var waitTime = 0;
-            var t = setInterval(function(){
+            let waitTime = 0;
+            let t = setInterval(function(){
                 waitTime += 1;
                 //显示3s分数
                 ctx.font = "50px Microsoft YaHei";
-                //纯色填充
+                //纯色填充，用来覆盖前一秒的内容
                 ctx.fillStyle = '#e8eaec';
                 ctx.fillRect(280, 100, 400, 200);
+
                 ctx.fillStyle = "#000000";
                 // cxt.clearRect(0,0,c.width,c.height);
                 ctx.fillText("你的分数: " + score,380,150);
@@ -287,8 +286,8 @@
         }
 
         function targetDown(){
-            var waitTime = 0;
-            var t = setInterval(function(){
+            let waitTime = 0;
+            let t = setInterval(function(){
                 waitTime += 1;
                 //clear需要clear上一个draw，而上一个draw已经加了dis，所以写clear要注意
                 clearTarget();
@@ -311,7 +310,7 @@
             drawTarget();
             drawThirdBlock();
             
-            var staticTime = time;
+            let staticTime = time;
             if(lastTime === staticTime){
                 console.log("time:" + time);
                 //游戏内容
@@ -358,33 +357,48 @@
 
         //处理按键
         var NoJump = 0;
+        //kflag用来出处理keydown不松开导致多次触发的问题
+        var kflag = false;
         function keyDown(e){
             // alert("keydown");
             var keyNum = window.event ? e.keyCode : e.which;
             //32为空格
             if(animation !== undefined){
-                if(keyNum == 32){
-                    if(NoJump == 1) return;
-                    intervalID = setInterval(timer,10);
-                    // alert(intervalID);
+                if(kflag){
+                    //重复按下键则避免执行
+                    e.preventDefault();
                 }else{
-                    //13为回车
-                    if(keyNum == 13 && !flag ){
-                        //介绍动画
-                        //想法：可以设置一个定时器再进入main
-                        //进入游戏
-                        main(0);
-                        flag = 1;
+                    if(keyNum == 32){
+                        if(NoJump == 1) return;
+                        intervalID = setInterval(function(){
+                            time ++;
+                        },10);
+                        kflag = true;
+                    }else{
+                        //13为回车
+                        if(keyNum == 13 && !flag ){
+                            //介绍动画
+                            //想法：可以设置一个定时器再进入main
+                            //进入游戏
+                            main(0);
+                            flag = 1;
+                        }
                     }
                 }
+                
             }
             
         }
         function keyUp(e){
-            var keyNum = window.event ? e.keyCode : e.which;
+            let keyNum = window.event ? e.keyCode : e.which;
             if(keyNum == 32){
-                clearInterval(lastID);
-                lastID = undefined;
+                //处理空格的弹起事件
+                if(intervalID !== undefined) {
+                    clearInterval(intervalID);
+                    intervalID = undefined;
+                }
+                //接触长按限制
+                kflag = false;
             }
         }
         //处理时间
@@ -393,7 +407,6 @@
                 lastID = intervalID;
             }else if(intervalID !== lastID){
                 clearInterval(intervalID);
-                
                 return ;
             }
             // console.log(time);

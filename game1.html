@@ -365,6 +365,7 @@
         //kflag用来出处理keydown不松开导致多次触发的问题
         var kflag = false;
         function keyDown(e){
+            let keyNum = window.event ? e.keyCode : e.which;
             //如果处在游戏状态
             if(animation !== undefined){
                 //32为空格
@@ -373,7 +374,7 @@
                     e.preventDefault();
                 }else{
                     //第一次按下
-                    if(e.keyCode == 32){
+                    if(keyNum == 32){
                         //先让游戏暂停
                         //！！！
                         //事件触发会比较好
@@ -387,7 +388,7 @@
                     }else{
                         //flag用来控制进入游戏
                         //而且进入一次
-                        if(e.keyCode == 13 && !flag){
+                        if(keyNum == 13 && !flag){
                             //如果是回车
                             //进入游戏
                             main(0);
