@@ -83,7 +83,7 @@
 
 
         var time = 0;//按空格的时间
-        var intervalID,lastID;
+        var intervalID;
         var flag = 0;//flag为1表示已经进入游戏
 
 
@@ -157,8 +157,8 @@
             return y;
         }
         
-        var timesRun = 0;
-        var deta_x = 0;
+        var timesRun;
+        var deta_x;
         var yuan_top,yuan_left;
         var JumpDis;
         function targetJump(jumpDis){
@@ -169,22 +169,17 @@
             JumpDis = jumpDis;
             // console.log(JumpDis);
             var t = setInterval(function(){
-                // console.log("lastTop:" + Target.top);
-                // console.log("lastLeft:" + Target.left);
-                // console.log(jumpDis);
                 timesRun += 1;
                 deta_x += JumpDis / 60;
                 Target.top = yuan_top + f(JumpDis,deta_x);
                 Target.left = yuan_left + deta_x;
                 Target.middle = Target.left + 0.5 * Target.length; 
-                // console.log(Target.top);
-                // console.log(Target.left);
-                // console.log(deta_x);
                 if(timesRun === 60){
                     Target.top = yuan_top;
                     NoJump = 0;
                     clearInterval(t);
                     isFail();
+                    console.log("restart:" + restart);
                 }
             },5);
         }
@@ -245,7 +240,6 @@
                     clearInterval(t);
                 }
             },2);
-            
         }
 
         var restart = 0;
@@ -299,43 +293,54 @@
                 }
             },15);
         }
-
-        var animation = 1;
-        var lastTime;
+        //让animation不为undifined
+        var animation = !undefined;
         //浏览器帧数控制
         var controlfps = 60;
+        var coolingTime = 1;
+        var stop = 0;
+
+        var lastTime;
+        
         function main(tframe){
             render();
             drawLeftBlock();
             drawRightBlock();
             drawTarget();
             drawThirdBlock();
-            
+            console.log("time:" + time);
+            // console.log("animation:" + animation);
+            //冷却=1表示可以跳跃，否则不可以跳跃
             var staticTime = time;
-            if(lastTime === staticTime){
+            if(lastTime === staticTime && time !== 0 && coolingTime === 1){
                 console.log("time:" + time);
                 //游戏内容
                 var jumpDis = dis * time;
-                var jumpHeight = 0.8 * jumpDis;
-                // console.log(Target.middle);
-                targetJump(jumpDis);
-                // console.log(Target.top);
-                // console.log(Target.left);
-                // console.log(Target.middle);
-                //保证长按产生新的keydown，time不会一直加
+                //由于targetJump跳跃的时候需要300个间隔的时间
+                //因此在这段时间中不能再次调用targetJump
+                targetJump(jumpDis); 
+                //设置320个间隔时间的冷却时间
+                coolingTime = 0;
+                //冷却恢复
+                setTimeout(function(){
+                    coolingTime = 1;
+                },320);
                 lastTime = undefined;
                 time = 0;
             }else if(time !== 0){
                 //time的刷新
                 lastTime = staticTime;
             }
-            
-            update(tframe);
-            //main结束时调用requestAnimationFrame重新执行main
+            //刷新帧
+            update(tframe); 
+            // console.log("time:" + time);
+            // console.log("animation:" + animation);
+
+
             if(!restart) {
-                setTimeout(function() {
+                //setTimeout(function() {
                     animation = window.requestAnimationFrame(main);　　 
-            　　}, 1000 / controlfps);
+            　　//}, 1000 / controlfps);
             }
             else{
                 restart = 0;
@@ -344,7 +349,8 @@
                 animation = undefined;
                 targetDown();
                 showScore();
-            }       
+            }  
+                
         }
         
         function welcome(){
@@ -358,47 +364,53 @@
 
         //处理按键
         var NoJump = 0;
+        //kflag用来出处理keydown不松开导致多次触发的问题
+        var kflag = false;
         function keyDown(e){
-            // alert("keydown");
-            var keyNum = window.event ? e.keyCode : e.which;
-            //32为空格
+            //如果处在游戏状态
             if(animation !== undefined){
-                if(keyNum == 32){
-                    if(NoJump == 1) return;
-                    intervalID = setInterval(timer,10);
-                    // alert(intervalID);
+                //32为空格
+                if(kflag){
+                    //重复按下键则避免执行
+                    e.preventDefault();
                 }else{
-                    //13为回车
-                    if(keyNum == 13 && !flag ){
-                        //介绍动画
-                        //想法：可以设置一个定时器再进入main
-                        //进入游戏
-                        main(0);
-                        flag = 1;
+                    //第一次按下
+                    if(e.keyCode == 32){
+                        //先让游戏暂停
+                        //！！！
+                        //事件触发会比较好
+                        stop = 1;
+                        //如果是空格
+                        if(NoJump == 1) return;
+                        intervalID = setInterval(function(){
+                            time ++;
+                        },10);
+                        kflag = true;
+                    }else{
+                        //flag用来控制进入游戏
+                        //而且进入一次
+                        if(e.keyCode == 13 && !flag){
+                            //如果是回车
+                            //进入游戏
+                            main(0);
+                           // console.log("kongge");
+                            flag = 1;
+                            //kflag = true;
+                        }
                     }
                 }
             }
-            
         }
         function keyUp(e){
-            var keyNum = window.event ? e.keyCode : e.which;
-            if(keyNum == 32){
-                clearInterval(lastID);
-                lastID = undefined;
+            if(e.keyCode == 32){
+                //处理空格的弹起事件
+                if(intervalID !== undefined) {
+                    clearInterval(intervalID);
+                    intervalID = undefined;
+                }
+                //接触长按限制
+                kflag = false;
             }
-        }
-        //处理时间
-        function timer(){
-            if(lastID === undefined){
-                lastID = intervalID;
-            }else if(intervalID !== lastID){
-                clearInterval(intervalID);
-                
-                return ;
-            }
-            // console.log(time);
-            NoJump = 1;
-            time ++;
         }
         function update(tframe){
             var dt = (tframe - lastframe) / 1000;
@@ -409,12 +421,10 @@
             if (fpstime > 0.25) {
                 //计算帧数
                 fps = Math.round(framecount / fpstime);
-    
                 //重置时间
                 fpstime = 0;
                 framecount = 0;
             }
-    
             //增加帧时间、帧数
             fpstime += dt;
             framecount++;
@@ -422,13 +432,13 @@
         // 渲染（更新画布）
         function render() {
             drawFrame();
+            //奖励语句
             ctx.font = "30px Microsoft YaHei";
             ctx.fillStyle = "#000000";
             ctx.fillText("score: " + score, jump.width - 150,120);
             price(sentence);
         }
  
-        // 
         function drawFrame() {
             // 背景、边界
             ctx.fillStyle = "#d0d0d0";
