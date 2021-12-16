@@ -92,6 +92,7 @@
         var Target;
         var score;
 
+        var sentence;
         function init(){
             //键盘按下的事件监听
             jump.addEventListener("keydown",keyDown);
@@ -104,6 +105,7 @@
             rightBlock = new block(1);
             Target = new target(leftBlock);
             animation = 1;
+            sentence = undefined;
             drawFrame();
             welcome();
         }
@@ -120,15 +122,11 @@
 
         function drawLeftBlock(){
             ctx.fillStyle = "#000000";
-            // console.log(leftBlock.left);
-            // console.log(leftBlock.right);
             ctx.fillRect(leftBlock.left,leftBlock.top,leftBlock.length,leftBlock.height);
         }
 
         function drawRightBlock(){
             ctx.fillStyle = "#000000";
-            // console.log(rightBlock.left);
-            // console.log(rightBlock.right);
             ctx.fillRect(rightBlock.left,rightBlock.top,rightBlock.length,rightBlock.height);
         }
 
@@ -184,7 +182,7 @@
             },5);
             //需要修改
         }
-        var sentence = undefined;
+        
         function setPrice(sen){
             sentence = sen;
         }
@@ -200,14 +198,14 @@
                 }
                 ctx.fillText(sentence,300,150);
                 // console.log("give price!");
-                
             }
             
         }
 
         function getPrice(){
+            //在同一个块中
             if(Target.middle > rightBlock.left && Target.middle < rightBlock.left + rightBlock.length){
-                if(Target.left < rightBlock.left || Target.left + Target.left + Target.length < rightBlock.left + rightBlock.length){
+                if(Target.left < rightBlock.left || Target.left + Target.length > rightBlock.left + rightBlock.length){
                     setPrice("dangerous but excellent!");
                     score += 3;
                 }else if(Target.middle > rightBlock.left + rightBlock.length * 0.4 && Target.middle < rightBlock.left + rightBlock.length * 0.6){
@@ -247,14 +245,10 @@
 
         var restart = 0;
         function isFail(){
-            if(thirdBlock === undefined &&(Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length)){
+            if((Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length)){
                 restart = 1;
                 alert("fail");
             }
-            // else if(thirdBlock !== undefined && (Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || (Target.middle > rightBlock.left + rightBlock.length && Target.middle < thirdBlock.left) || Target.middle > thirdBlock.left + thirdBlock.length)){
-            //     restart = 1;
-            //     alert("fail");
-            // }
             else{
                 //奖励行为
                 getPrice();
@@ -313,11 +307,10 @@
             
             let staticTime = time;
             if(lastTime === staticTime){
-                console.log("time:" + time);
+                // console.log("time:" + time);
                 //游戏内容
-                var jumpDis = dis * time;
-                //var jumpHeight = 0.8 * jumpDis;
-                // console.log(Target.middle);
+                let jumpDis = dis * time;
+                
                 targetJump(jumpDis);
                 // console.log(Target.top);
                 // console.log(Target.left);
@@ -423,7 +416,6 @@
             if (fpstime > 0.25) {
                 //计算帧数
                 fps = Math.round(framecount / fpstime);
-    
                 //重置时间
                 fpstime = 0;
                 framecount = 0;
