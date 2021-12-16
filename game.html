@@ -93,6 +93,7 @@
         var score;
 
         var sentence;
+        var NoJump;
         function init(){
             //键盘按下的事件监听
             jump.addEventListener("keydown",keyDown);
@@ -101,6 +102,7 @@
             document.onkeydown = keyDown;
             document.onkeyup = keyUp;
             score = 0;
+            NoJump = 0;
             leftBlock = new block(0);
             rightBlock = new block(1);
             Target = new target(leftBlock);
@@ -165,6 +167,7 @@
             timesRun = 0;
             deta_x = 0;
             JumpDis = jumpDis;
+            NoJump = 1;
             // console.log(JumpDis);
             var t = setInterval(function(){
                 timesRun += 1;
@@ -350,7 +353,7 @@
         }
 
         //处理按键
-        var NoJump = 0;
+        
         //kflag用来出处理keydown不松开导致多次触发的问题
         var kflag = false;
         function keyDown(e){
