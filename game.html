@@ -206,7 +206,7 @@
         }
 
         function getPrice(){
-            //在同一个块中
+            //在同一个块中不能获得奖励
             if(Target.middle > rightBlock.left && Target.middle < rightBlock.left + rightBlock.length){
                 if(Target.left < rightBlock.left || Target.left + Target.length > rightBlock.left + rightBlock.length){
                     setPrice("dangerous but excellent!");
@@ -228,7 +228,6 @@
             thirdBlock.left += rightBlock.left - 1/7 * Width;
             NoJump = 1;
             let t = setInterval(function(){
-                
                 leftBlock.leftMove();
                 rightBlock.leftMove();
                 Target.leftMove();
