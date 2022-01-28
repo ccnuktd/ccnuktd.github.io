@@ -1,2 +1,2 @@
 # ccnuktd.github.io
-Personal blog 
+个人简历和博客
