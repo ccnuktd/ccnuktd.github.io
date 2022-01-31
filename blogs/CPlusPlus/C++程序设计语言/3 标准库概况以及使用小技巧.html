@@ -1,0 +1,734 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3 标准库概况以及使用小技巧 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="4 类型和声明.html" />
+    
+    
+    <link rel="prev" href="2 程序设计思想.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    C++程序设计语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="本书结构.html">
+            
+                <a href="本书结构.html">
+            
+                    
+                    本书结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1 编程思考.html">
+            
+                <a href="1 编程思考.html">
+            
+                    
+                    1 编程思考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2 程序设计思想.html">
+            
+                <a href="2 程序设计思想.html">
+            
+                    
+                    2 程序设计思想
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="3 标准库概况以及使用小技巧.html">
+            
+                <a href="3 标准库概况以及使用小技巧.html">
+            
+                    
+                    3 标准库概况以及使用小技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="4 类型和声明.html">
+            
+                <a href="4 类型和声明.html">
+            
+                    
+                    4 类型和声明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="5 指针、数组和结构.html">
+            
+                <a href="5 指针、数组和结构.html">
+            
+                    
+                    5 指针、数组和结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="6 表达式与语句.html">
+            
+                <a href="6 表达式与语句.html">
+            
+                    
+                    6 表达式与语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="7 函数.html">
+            
+                <a href="7 函数.html">
+            
+                    
+                    7 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="8 名字空间和异常.html">
+            
+                <a href="8 名字空间和异常.html">
+            
+                    
+                    8 名字空间和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" >
+            
+                <span>
+            
+                    
+                    9 源文件与程序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="10 类.html">
+            
+                <a href="10 类.html">
+            
+                    
+                    10 类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="11 运算符重载.html">
+            
+                <a href="11 运算符重载.html">
+            
+                    
+                    11 运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" >
+            
+                <span>
+            
+                    
+                    12 派生类
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.13.1" data-path="12.2 派生类.html">
+            
+                <a href="12.2 派生类.html">
+            
+                    
+                    12.2 派生类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13.2" data-path="12.3 抽象类.html">
+            
+                <a href="12.3 抽象类.html">
+            
+                    
+                    12.3 抽象类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13.3" data-path="12.4 类层次结构设计.html">
+            
+                <a href="12.4 类层次结构设计.html">
+            
+                    
+                    12.4 类层次结构设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" >
+            
+                <span>
+            
+                    
+                    13 模板
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.14.1" data-path="13.2 一个简单的String模板.html">
+            
+                <a href="13.2 一个简单的String模板.html">
+            
+                    
+                    13.2 一个简单的String模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    C++面试
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../C++面试/C++面经基础知识.html">
+            
+                <a href="../C++面试/C++面经基础知识.html">
+            
+                    
+                    C++面经基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../C++面试/校招C与C++语法刷题.html">
+            
+                <a href="../C++面试/校招C与C++语法刷题.html">
+            
+                    
+                    校招C与C++语法刷题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../C++面试/校招算法刷题.html">
+            
+                <a href="../C++面试/校招算法刷题.html">
+            
+                    
+                    校招算法刷题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    极客光城C++
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    基础进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../极客光城C++/基础进阶/vptr&vtable/vptr&vtable.html">
+            
+                <a href="../极客光城C++/基础进阶/vptr&vtable/vptr&vtable.html">
+            
+                    
+                    vptr&vtable
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3 标准库概况以及使用小技巧</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6807;&#x51C6;&#x5E93;">&#x6807;&#x51C6;&#x5E93;</h1>
+<h3 id="tip">Tip</h3>
+<h4 id="1cin-&#x662F;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x8BFB;&#x5165;&#x7A7A;&#x683C;&#x7684;&#x3002;">1.cin &#x662F;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x8BFB;&#x5165;&#x7A7A;&#x683C;&#x7684;&#x3002;</h4>
+<pre><code class="lang-c++"><span class="hljs-built_in">cin</span> &gt;&gt; str;
+<span class="hljs-built_in">cout</span> &lt;&lt; str;
+<span class="hljs-comment">//&#x5982;&#x679C;&#x8F93;&#x5165;:Hello world</span>
+<span class="hljs-comment">//&#x5219;&#x4F1A;&#x8F93;&#x5165;Hello</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x8BFB;&#x4E00;&#x884C;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>getline</code>&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-c++">getline(<span class="hljs-built_in">cin</span>,str);
+</code></pre>
+<h4 id="2vector&#x7684;&#x4F7F;&#x7528;">2.vector&#x7684;&#x4F7F;&#x7528;</h4>
+<p>vector&#x662F;&#x6CA1;&#x6709;&#x8D8A;&#x754C;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;<code>Vec</code> &#x7EE7;&#x627F;vector &#x63D0;&#x4F9B;&#x8D8A;&#x754C;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x80FD;&#x529B;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;<span class="hljs-keyword">class</span> Vec:<span class="hljs-keyword">public</span> <span class="hljs-built_in">vector</span>&lt;T&gt;{
+<span class="hljs-keyword">public</span>:
+    Vec():<span class="hljs-built_in">vector</span>&lt;T&gt;(){}
+    Vec(<span class="hljs-keyword">int</span> s):<span class="hljs-built_in">vector</span>&lt;T&gt;(s){}
+    <span class="hljs-keyword">const</span> T&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i)<span class="hljs-keyword">const</span> { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;at(i); } <span class="hljs-comment">//at&#x51FD;&#x6570;&#x5177;&#x6709;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x80FD;&#x529B;</span>
+    T&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;at(i); }
+    <span class="hljs-comment">//&#x4E4B;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x91CD;&#x8F7D;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x4E0A;&#x9762;&#x7684;&#x91CD;&#x8F7D;&#x662F;&#x7528;&#x4E8E;&#x8D4B;&#x503C;&#xFF08;&#x4E0D;&#x80FD;&#x591F;&#x4FEE;&#x6539;&#xFF09;num1 = a[3];</span>
+    <span class="hljs-comment">//&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x662F;&#x7528;&#x4E8E;&#x4FEE;&#x6539;a[2] = 100;</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    Vec&lt;<span class="hljs-keyword">int</span>&gt; a(<span class="hljs-number">100</span>);
+    a[<span class="hljs-number">100</span>] = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h4 id="3list&#x7684;&#x4F7F;&#x7528;">3.list&#x7684;&#x4F7F;&#x7528;</h4>
+<p>&#x4F7F;&#x7528;list&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4E0D;&#x53BB;&#x7528;&#x4E0B;&#x6807;&#x8FD0;&#x7B97;&#xFF08;&#x5982;&#xFF1A;a[3]&#xFF09;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x6765;&#x8FD0;&#x7B97;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">array</span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> number)</span></span>{
+    <span class="hljs-keyword">typedef</span> <span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;::const_iterator L1;
+    <span class="hljs-keyword">for</span>(L1 i = <span class="hljs-built_in">array</span>.begin();i != <span class="hljs-built_in">array</span>.end();i ++){
+        <span class="hljs-keyword">if</span>(number == *i){
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;find it&quot;</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+    }
+}
+</code></pre>
+<p>&#x8981;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;<code>const_iterator</code>&#x6307;&#x7684;&#x5E76;&#x4E0D;&#x662F;L1&#x7C7B;&#x578B;&#x7684;<code>i</code>&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#xFF0C;&#x800C;&#x662F;&#x6307;<code>i</code>&#x6240;&#x6307;&#x5411;&#x7684;&#x90A3;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x3002;</p>
+<h4 id="4map&#x7684;&#x4F7F;&#x7528;">4.map&#x7684;&#x4F7F;&#x7528;</h4>
+<p>map &#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x90A3;&#x79CD;&#x6620;&#x5C04;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x4EBA;&#x7684;&#x59D3;&#x540D;name(string)&#x5BF9;&#x5E94;&#x5E74;&#x9F84;age(short)&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>,name&gt; people;
+</code></pre>
+<h4 id="5&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x5404;&#x6709;&#x4F18;&#x52BF;&#x3002;">5.&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x5404;&#x6709;&#x4F18;&#x52BF;&#x3002;</h4>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/img/202109071625283.png" alt="image-20210825170955664"></p>
+<p>vector &#x7684;&#x53D6;&#x4E0B;&#x6807;&#x8FD0;&#x7B97;&#x5BB9;&#x6613;&#xFF0C;&#x4F46;&#x662F;&#x63D2;&#x5165;&#x4EE3;&#x4EF7;&#x5F88;&#x5927;&#x3002;&#xFF08;&#x975E;&#x5E38;&#x50CF;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x7EC4;&#xFF09;</p>
+<p>list &#x7684;&#x63D2;&#x5165;&#x5220;&#x9664;&#x5F00;&#x9500;&#x4E0D;&#x592A;&#x5927;&#x3002;&#xFF08;&#x6709;&#x70B9;&#x50CF;&#x94FE;&#x8868;&#x7ED3;&#x6784;&#xFF09;</p>
+<p>map &#x7684;&#x67E5;&#x627E;&#x6709;&#x4F18;&#x5316;&#x3002;&#xFF08;&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x7528;&#x6811;&#x5B9E;&#x73B0;&#x7684;&#xFF09;</p>
+<h4 id="6&#x57FA;&#x672C;&#x7684;&#x7B97;&#x6CD5;">6.&#x57FA;&#x672C;&#x7684;&#x7B97;&#x6CD5;</h4>
+<h5 id="1sort&#x548C;copy">1.sort&#x548C;copy</h5>
+<p>&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x5199;&#x6392;&#x5E8F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>sort</code>&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;C&#x8BED;&#x8A00;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x9519;&#x7684;<code>realloc</code>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>copy</code>&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;a, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;b)</span></span>{
+    sort(a.begin(),a.end());
+    <span class="hljs-comment">//&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x5728;copy&#x7684;&#x65F6;&#x5019;&#x8981;&#x8003;&#x8651;&#xFF0C;b&#x7684;&#x7A7A;&#x95F4;&#x80FD;&#x4E0D;&#x80FD;&#x5B58;&#x653E;a&#x7684;&#x91CF;</span>
+    <span class="hljs-comment">//&#x56E0;&#x6B64;&#x4F7F;&#x7528;back_inserter()&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x5728;b&#x7684;&#x672B;&#x5C3E;copy a&#x7684;&#x503C;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;realloc&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x5B89;&#x5168;&#x66F4;&#x597D;&#x7528;</span>
+    copy(a.begin(),a.end(),back_inserter(b));
+}
+</code></pre>
+<h5 id="2find&#x548C;count">2.find&#x548C;count</h5>
+<p>find&#x548C;count&#x5F88;&#x50CF;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x5229;&#x7528;find&#x67E5;&#x627E;&#x8FED;&#x4EE3;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x503C;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">typedef</span> <span class="hljs-built_in">string</span>::const_iterator L1; 
+<span class="hljs-function">L1 <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span>&amp; s,<span class="hljs-keyword">char</span> c)</span></span>{    <span class="hljs-comment">//&#x67E5;&#x627E;s&#x4E2D;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;c&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x8FD4;&#x56DE;&#x8FED;&#x4EE3;&#x5668;&#xFF09;</span>
+    L1 i = s.begin();
+    <span class="hljs-keyword">while</span>(i != s.end()){
+        <span class="hljs-keyword">if</span>(*i == c) <span class="hljs-keyword">return</span> i;
+        i ++;
+    }
+    <span class="hljs-keyword">return</span> s.end();
+}
+<span class="hljs-comment">//find&#x7528;&#x6CD5;</span>
+<span class="hljs-built_in">string</span> m = <span class="hljs-string">&quot;Mary had a little lamb&quot;</span>;
+<span class="hljs-built_in">string</span>::iterator i = find(m.begin(),m.end(),<span class="hljs-string">&apos;a&apos;</span>);
+
+<span class="hljs-comment">//find&#x8FD8;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x7C7B;&#x7684;&#x53CB;&#x5143;&#x51FD;&#x6570;&#xFF0C;&#x6B64;&#x65F6;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x4F4D;&#x7F6E;&#x4E86;</span>
+<span class="hljs-built_in">string</span> m = <span class="hljs-string">&quot;Mary had a little lamb&quot;</span>;
+<span class="hljs-built_in">string</span>::iterator i = m.find(<span class="hljs-string">&apos;a&apos;</span>);
+</code></pre>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/img/202109071624547.png" alt="image-20210825173122556"></p>
+<pre><code class="lang-c++"><span class="hljs-comment">//&#x5982;&#x679C;&#x4F7F;&#x7528;count</span>
+<span class="hljs-built_in">string</span> m = <span class="hljs-string">&quot;Mary had a little lamb&quot;</span>;
+<span class="hljs-keyword">int</span> cnt = count(m.begin(),m.end(),<span class="hljs-string">&apos;a&apos;</span>);
+<span class="hljs-comment">//&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x7EC4;&#x4F7F;&#x7528;</span>
+<span class="hljs-keyword">int</span> a[<span class="hljs-number">100</span>] = {<span class="hljs-number">0</span>};
+<span class="hljs-keyword">int</span> cnt = count(&amp;a[<span class="hljs-number">0</span>],&amp;a[<span class="hljs-number">99</span>],<span class="hljs-number">0</span>);
+</code></pre>
+<h4 id="7io&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x5173;&#x7CFB;">7.I/O&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x4E0E;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x5173;&#x7CFB;</h4>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iterator&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;<span class="hljs-keyword">class</span> Vec:<span class="hljs-keyword">public</span> <span class="hljs-built_in">vector</span>&lt;T&gt;{
+<span class="hljs-keyword">public</span>:
+    Vec():<span class="hljs-built_in">vector</span>&lt;T&gt;(){}
+    Vec(<span class="hljs-keyword">int</span> s):<span class="hljs-built_in">vector</span>&lt;T&gt;(s){}
+    <span class="hljs-keyword">const</span> T&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i)<span class="hljs-keyword">const</span> { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;at(i); }
+    T&amp; <span class="hljs-keyword">operator</span>[](<span class="hljs-keyword">int</span> i) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;at(i); }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>{
+    ostream_iterator&lt;<span class="hljs-built_in">string</span>&gt; oo(<span class="hljs-built_in">cout</span>);
+    istream_iterator&lt;<span class="hljs-built_in">string</span>&gt; ii(<span class="hljs-built_in">cin</span>);
+    <span class="hljs-comment">//istream_iterator&lt;string&gt; eos;</span>
+    *oo = <span class="hljs-string">&quot;Hello &quot;</span>;
+    ++ oo;
+    oo = <span class="hljs-string">&quot; world!\n&quot;</span>; 
+    <span class="hljs-built_in">string</span> s1 = *ii;
+    ii ++;
+    <span class="hljs-built_in">string</span> s2 = *ii;
+    <span class="hljs-built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; s2 &lt;&lt; <span class="hljs-built_in">endl</span>; 
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x76F4;&#x63A5;&#x7ED9;<code>oo</code>&#x8D4B;&#x503C;&#xFF0C;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x663E;&#x793A;&#x8D4B;&#x503C;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x628A;<code>ii</code>&#x7684;&#x503C;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;&#x76F8;&#x5F53;&#x4E8E;<code>cin</code>&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<blockquote>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x8F93;&#x51FA;Hello Word!&#xFF0C;&#x800C;&#x662F;&#x9700;&#x8981;<strong>&#x5148;&#x4ECE;&#x7EC8;&#x7AEF;&#x4E2D;&#x8BFB;&#x5165;</strong>&#x7136;&#x540E;&#x624D;&#x4F1A;&#x8F93;&#x51FA;&#x201C;Hello World!&#x201D;&#x3002;</p>
+<p>&#x96BE;&#x4E0D;&#x6210;&#x4E0E;<code>cin</code>&#xFF0C;<code>cout</code>&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x6709;&#x5173;?</p>
+<p>&#x731C;&#x6D4B;&#x5F53;&#x8FD0;&#x884C;&#x5230;<code>istream_iterator&lt;string&gt; ii(cin)</code>&#x7684;&#x65F6;&#x5019;&#x4ECE;&#x68C0;&#x67E5;&#x8F93;&#x5165;&#xFF0C;&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x8F93;&#x5165;Hello+&#x56DE;&#x8F66;&#xFF0C;ii&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5C31;&#x88AB;&#x521A;&#x624D;&#x7684;&#x8F93;&#x5165;&#x8D4B;&#x503C;&#xFF0C;&#x5F53;&#x6765;&#x5230;ii ++&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53C8;&#x8FDB;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x8BFB;&#x5165;&#x8F93;&#x5165;&#x3002;</p>
+</blockquote>
+<h4 id="8&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x7B97;&#x6CD5;&#x7684;&#x51FD;&#x6570;&#x53EB;&#x505A;&#x8C13;&#x8BCD;&#xFF08;&#x8C13;&#x8BCD;&#x662F;bool&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5426;&#x5927;&#x4E8E;42&#xFF0C;0&#x7684;&#x6570;&#x91CF;&#x662F;&#x5426;&#x4E3A;0&#x4E2A;&#x4E4B;&#x7C7B;&#x7684;&#xFF09;">8.&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x7B97;&#x6CD5;&#x7684;&#x51FD;&#x6570;&#x53EB;&#x505A;&#x8C13;&#x8BCD;&#xFF08;&#x8C13;&#x8BCD;&#x662F;bool&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5426;&#x5927;&#x4E8E;42&#xFF0C;0&#x7684;&#x6570;&#x91CF;&#x662F;&#x5426;&#x4E3A;0&#x4E2A;&#x4E4B;&#x7C7B;&#x7684;&#xFF09;</h4>
+<p><img src="C:\Users\86187\AppData\Roaming\Typora\typora-user-images\image-20210826142110530.png" alt="image-20210826142110530"></p>
+<p><img src="https://gitee.com/ccnuktd/pic-bed/raw/master/image-20210826151000916.png" alt="image-20210826151000916"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2 程序设计思想.html" class="navigation navigation-prev " aria-label="Previous page: 2 程序设计思想">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="4 类型和声明.html" class="navigation navigation-next " aria-label="Next page: 4 类型和声明">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3 标准库概况以及使用小技巧","level":"1.2.4","depth":2,"next":{"title":"4 类型和声明","level":"1.2.5","depth":2,"path":"C++程序设计语言/4 类型和声明.md","ref":"C++程序设计语言/4 类型和声明.md","articles":[]},"previous":{"title":"2 程序设计思想","level":"1.2.3","depth":2,"path":"C++程序设计语言/2 程序设计思想.md","ref":"C++程序设计语言/2 程序设计思想.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"C++程序设计语言/3 标准库概况以及使用小技巧.md","mtime":"2022-01-31T04:02:38.737Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-31T05:26:54.105Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
