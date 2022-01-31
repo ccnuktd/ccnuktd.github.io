@@ -1,0 +1,430 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>编译的过程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="OS_2.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="OS_1.html">
+            
+                <a href="OS_1.html">
+            
+                    
+                    编译的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="OS_2.html">
+            
+                <a href="OS_2.html">
+            
+                    
+                    极客操作系统第二讲——跑通HelloOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="OS_3.html">
+            
+                <a href="OS_3.html">
+            
+                    
+                    操作系统内核分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="OS_4.html">
+            
+                <a href="OS_4.html">
+            
+                    
+                    经典操作系统的内核架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="OS_5.html">
+            
+                <a href="OS_5.html">
+            
+                    
+                    X86CPU的几种模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="OS_6.html">
+            
+                <a href="OS_6.html">
+            
+                    
+                    虚拟地址空间和分页技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="OS_7.html">
+            
+                <a href="OS_7.html">
+            
+                    
+                    cache与内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="OS_8.html">
+            
+                <a href="OS_8.html">
+            
+                    
+                    锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="OS_9.html">
+            
+                <a href="OS_9.html">
+            
+                    
+                    Linux自旋锁和信号量的实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="OS_10.html">
+            
+                <a href="OS_10.html">
+            
+                    
+                    尝试搭建操作系统——grub启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="OS_11.html">
+            
+                <a href="OS_11.html">
+            
+                    
+                    二级引导器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="OS_12.html">
+            
+                <a href="OS_12.html">
+            
+                    
+                    设置工作模式和环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >编译的过程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6781;&#x5BA2;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7B2C;&#x4E00;&#x8BB2;">&#x6781;&#x5BA2;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7B2C;&#x4E00;&#x8BB2;</h1>
+<p>&#x7F16;&#x8BD1;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;
+1.helloword.c-&gt;helloword.i-&gt;helloword.s-&gt;helloword.o-&gt;helloword</p>
+<p>.c-&gt;.i &#x9884;&#x5904;&#x7406;&#xFF08;&#x5934;&#x6587;&#x4EF6;&#x7684;&#x66FF;&#x6362;&#x548C;&#x5B8F;&#x66FF;&#x6362;&#xFF09;</p>
+<p>.i-&gt;.s &#x5C06;c&#x8BED;&#x8A00;&#x8F6C;&#x5316;&#x4E3A;&#x6C47;&#x7F16;&#x4EE3;&#x7801;</p>
+<p>.s-&gt;.o &#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x8F6C;&#x5316;&#x4E3A;&#x53EF;&#x94FE;&#x63A5;&#x7684;&#x673A;&#x5668;&#x8BED;&#x8A00;</p>
+<p>.o-&gt;.exe &#x5B9E;&#x73B0;&#x94FE;&#x63A5;&#x64CD;&#x4F5C;&#xFF0C;&#x5F62;&#x6210;&#x53EF;&#x6267;&#x884C;&#x7684;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-assembly">helloword&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;main&#x51FD;&#x6570;&#x90E8;&#x5206;
+
+f3 0f 1e fa                endbr64                    &#x5B89;&#x5168;&#x8BED;&#x53E5;
+55                        push %rbp                &#x5C06;rbp&#x5BC4;&#x5B58;&#x5668;&#x538B;&#x6808;
+48 89 e5                  mov    %rsp,%rbp            &#x5C06;rsp&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x503C;&#x8D4B;&#x7ED9;rbp
+48 83 ec 10                sub    $0x10,%rsp            rsp&#x4E2D;&#x7684;&#x503C;&#x51CF;&#x53BB;0x10
+89 7d fc                mov    %edi,-0x4(%rbp)        &#x5C06;edi&#x4E2D;&#x7684;&#x503C;&#x5199;&#x5230;rbp-4&#x5730;&#x5740;&#x5904;
+48 89 75 f0                mov %rsi,-0x10(%rbp)    [rbp-0x10] = rsi
+48 8d 3d a1 0e 00 00    lea 0xea1(%rip),%rdi    rdi = rip + 0xea1(3745)
+e8 e8 fe ff ff             callq 1050 &lt;puts@plt&gt;    &#x8C03;&#x7528;puts&#x51FD;&#x6570;
+b8 00 00 00 00            mov    $0x0,%eax            eax = 0x0
+c9                        leaveq                    &#x6E05;&#x7406;&#x6808;
+c3                        retq                    main&#x51FD;&#x6570;&#x8FD4;&#x56DE;
+90                        nop                        &#x7A7A;&#x8BED;&#x53E5;
+</code></pre>
+<blockquote>
+<p>1.endbr64&#x89E3;&#x8BFB;&#xFF1A;&#x5B89;&#x5168;&#x8BED;&#x53E5;</p>
+<p>Intel CET&#x63D0;&#x4F9B;&#x4E86;&#x5F71;&#x5B50;&#x6808;&#x53CA;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#x8FFD;&#x8E2A;&#x529F;&#x80FD;&#xFF0C;<strong>&#x4FDD;&#x62A4;&#x63A7;&#x5236;&#x6D41;&#x5B8C;&#x6574;&#x6027;</strong>&#xFF08;wiki: here&#xFF09;&#x3002;</p>
+<p>Intel CET&#x76F8;&#x5173;&#x7684;&#x6307;&#x4EE4;&#x5982;endbr64&#x662F;&#x540E;&#x5411;&#xFF08;backward&#xFF09;&#x517C;&#x5BB9;&#x7684;&#x3002;</p>
+<p>&#x5728;Intel CET&#x4E2D;&#xFF0C;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;&#x4E2D;&#x88AB;&#x63D2;&#x5165;&#x4E00;&#x6BB5;&#x8FC7;&#x7A0B;&#xFF1A;&#x5C06;CPU&#x72B6;&#x6001;&#x4ECE;DLE&#x5207;&#x6362;&#x6210;WAIT_FOR_ENDBRANCH&#x3002;</p>
+<p>&#x5728;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#x4E4B;&#x540E;&#x67E5;&#x770B;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x662F;&#x4E0D;&#x662F;endbr64&#x3002;&#x5982;&#x679C;&#x6307;&#x4EE4;&#x662F;endbr64&#x6307;&#x4EE4;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x6307;&#x4EE4;&#x4F1A;&#x5C06;CPU&#x72B6;&#x6001;&#x4ECE;WAIT_FOR_ENDBRANCH&#x6062;&#x590D;&#x6210;DLE&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x4E0D;&#x662F;endbr64&#xFF0C;&#x8BF4;&#x660E;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x88AB;&#x63A7;&#x5236;&#x6D41;&#x52AB;&#x6301;&#x4E86;&#xFF0C;CPU&#x5C31;&#x62A5;&#x9519;&#xFF08;#CP&#xFF09;&#x3002;&#x56E0;&#x4E3A;&#x6309;&#x7167;&#x6B63;&#x786E;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#x540E;&#x5E94;&#x8BE5;&#x9700;&#x8981;&#x6709;&#x4E00;&#x6761;&#x5BF9;&#x5E94;&#x7684;endbr64&#x6307;&#x4EE4;&#x6765;&#x56DE;&#x5E94;&#x95F4;&#x63A5;&#x8DF3;&#x8F6C;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;endbr64&#x6307;&#x4EE4;&#xFF0C;&#x90A3;&#x4E48;&#x7A0B;&#x5E8F;&#x63A7;&#x5236;&#x6D41;&#x53EF;&#x80FD;&#x88AB;&#x52AB;&#x6301;&#x5E76;&#x524D;&#x5F80;&#x5176;&#x5B83;&#x5730;&#x5740;&#xFF08;&#x5176;&#x5B83;&#x4EFB;&#x610F;&#x5730;&#x5740;&#x4E0A;&#x662F;&#x4EE5;&#x975E;endbr64&#x5F00;&#x59CB;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF09;&#xFF08;&#x6D89;&#x53CA;&#x7F16;&#x8BD1;&#x5668;&#x517C;&#x5BB9;CPU&#x65B0;&#x7279;&#x6027;&#xFF09;&#x3002;</p>
+<p>2.mov</p>
+<p>&#x5728;&#x738B;&#x723D;&#x7684;&#x300A;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x300B;&#x4E2D;mov&#x7684;&#x7528;&#x6CD5;&#x662F;&#xFF1A;mov &#x76EE;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x6E90;&#x64CD;&#x4F5C;&#x6570;</p>
+<p>&#x5373;<strong>&#x5C06;&#x6E90;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x503C;&#x5199;&#x5165;&#x5230;&#x76EE;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x4E2D;</strong></p>
+<p>&#x4F46;&#x662F;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x53CD;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;mov&#x7684;&#x7528;&#x6CD5;&#x521A;&#x597D;&#x76F8;&#x53CD;&#xFF1A;<strong>&#x5373;&#x5C06;&#x7B2C;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x503C;&#x5199;&#x5165;&#x7B2C;&#x4E8C;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x91CC;&#x9762;</strong></p>
+<p>3.lea</p>
+<p>&#x5728;&#x738B;&#x723D;&#x7684;&#x300A;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x300B;&#x4E2D;lea&#x7684;&#x7528;&#x6CD5;&#x662F;&#xFF1A;lea &#x76EE;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#xFF0C;&#x6E90;&#x64CD;&#x4F5C;&#x6570;</p>
+<p>&#x5373;<strong>&#x5C06;&#x6E90;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x5199;&#x5165;&#x76EE;&#x7684;&#x64CD;&#x4F5C;&#x6570;&#x4E2D;</strong></p>
+<p>&#x4F46;&#x662F;&#x6CE8;&#x610F;lea&#x548C;mov&#x7684;&#x533A;&#x522B;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x8981;&#x77E5;&#x9053;[eax]&#x548C;eax&#x7684;&#x533A;&#x522B;</p>
+<p>&#x524D;&#x8005;&#x662F;<strong>eax&#x5BC4;&#x5B58;&#x5668;&#x4E2D;&#x7684;&#x503C;</strong>&#xFF0C;&#x800C;&#x540E;&#x8005;&#x662F;<strong>eax&#x672C;&#x8EAB;&#x7684;&#x5730;&#x5740;</strong>&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#x524D;&#x9762;&#x662F;&#x628A;eax&#x5F53;&#x6210;&#x5730;&#x5740;&#x53BB;&#x53D6;&#x5730;&#x5740;&#x7684;&#x503C;&#xFF0C;&#x540E;&#x8005;&#x5219;&#x76F4;&#x63A5;&#x628A;eax&#x5F53;&#x4F5C;&#x4E86;&#x503C;</p>
+<p>lea BX,BUFFER        &#x5C06;BUFFER&#x7684;&#x504F;&#x79FB;&#x5730;&#x5740;&#xFF08;&#x5C31;&#x662F;BUFFER&#x672C;&#x8EAB;&#x5730;&#x5740;&#xFF09;&#x8D4B;&#x7ED9;BX</p>
+<p>mov BX,BUFFER     &#x5C06;BUFFER&#x5BC4;&#x5B58;&#x5668;&#xFF08;&#x6B64;&#x65F6;BUFFER&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF09;&#x7684;&#x8D4B;&#x7ED9;BX    </p>
+<p>&#x4E0E;mov&#x540C;&#x7406;&#xFF0C;&#x53CD;&#x6C47;&#x7F16;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x300A;&#x6C47;&#x7F16;&#x539F;&#x7406;&#x7684;&#x4E66;&#x4E0A;&#x4E0D;&#x4E00;&#x6837;&#x300B;</p>
+</blockquote>
+<p>&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;%esp,%ebp&#x7684;&#x53D8;&#x5316;&#x53EF;&#x4EE5;&#x770B;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x6709;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</p>
+<p><a href="https://manybutfinite.com/post/journey-to-the-stack" target="_blank">https://manybutfinite.com/post/journey-to-the-stack</a></p>
+<p>&#x56F0;&#x60D1;&#xFF1A;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x4E2D;&#x5404;&#x79CD;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x610F;&#x4E49;&#x548C;&#x4F5C;&#x7528;&#xFF08;&#x4E00;&#x5B9A;&#x8981;&#x77E5;&#x9053;&#xFF09;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="OS_2.html" class="navigation navigation-next " aria-label="Next page: 极客操作系统第二讲——跑通HelloOS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"编译的过程","level":"1.2","depth":1,"next":{"title":"极客操作系统第二讲——跑通HelloOS","level":"1.3","depth":1,"path":"OS_2.md","ref":"OS_2.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"OS_1.md","mtime":"2022-01-31T04:02:38.875Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-31T05:25:51.549Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

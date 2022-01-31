@@ -1,0 +1,443 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>二级引导器 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="OS_12.html" />
+    
+    
+    <link rel="prev" href="OS_10.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="OS_1.html">
+            
+                <a href="OS_1.html">
+            
+                    
+                    编译的过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="OS_2.html">
+            
+                <a href="OS_2.html">
+            
+                    
+                    极客操作系统第二讲——跑通HelloOS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="OS_3.html">
+            
+                <a href="OS_3.html">
+            
+                    
+                    操作系统内核分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="OS_4.html">
+            
+                <a href="OS_4.html">
+            
+                    
+                    经典操作系统的内核架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="OS_5.html">
+            
+                <a href="OS_5.html">
+            
+                    
+                    X86CPU的几种模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="OS_6.html">
+            
+                <a href="OS_6.html">
+            
+                    
+                    虚拟地址空间和分页技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="OS_7.html">
+            
+                <a href="OS_7.html">
+            
+                    
+                    cache与内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="OS_8.html">
+            
+                <a href="OS_8.html">
+            
+                    
+                    锁机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="OS_9.html">
+            
+                <a href="OS_9.html">
+            
+                    
+                    Linux自旋锁和信号量的实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="OS_10.html">
+            
+                <a href="OS_10.html">
+            
+                    
+                    尝试搭建操作系统——grub启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="OS_11.html">
+            
+                <a href="OS_11.html">
+            
+                    
+                    二级引导器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="OS_12.html">
+            
+                <a href="OS_12.html">
+            
+                    
+                    设置工作模式和环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >二级引导器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x7B2C;11&#x8BB2;&#x2014;&#x2014;&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;">&#x6781;&#x5BA2;&#x65F6;&#x95F4;&#x7B2C;11&#x8BB2;&#x2014;&#x2014;&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;</h1>
+<p>GRUB&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#x4E86;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x7528;&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;&#x5462;&#xFF1F;</p>
+<p>&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;&#x53EF;&#x4EE5;<strong>&#x6536;&#x96C6;&#x673A;&#x5668;&#x7684;&#x4FE1;&#x606F;</strong>&#xFF0C;&#x786E;&#x5B9A;&#x8FD9;&#x4E2A;&#x8BA1;&#x7B97;&#x673A;<strong>&#x80FD;&#x4E0D;&#x80FD;&#x8FD0;&#x884C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</strong>&#xFF0C;&#x8FD8;&#x8981;&#x5BF9;<strong>CPU&#xFF0C;&#x5185;&#x5B58;&#x548C;&#x663E;&#x5361;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x521D;&#x7EA7;&#x7684;&#x914D;&#x7F6E;</strong>&#xFF0C;&#x653E;&#x7F6E;&#x597D;<strong>&#x5185;&#x6838;&#x76F8;&#x5173;&#x7684;&#x6587;&#x4EF6;</strong>&#x3002;</p>
+<h3 id="&#x8BBE;&#x8BA1;&#x673A;&#x5668;&#x4FE1;&#x606F;&#x7ED3;&#x6784;">&#x8BBE;&#x8BA1;&#x673A;&#x5668;&#x4FE1;&#x606F;&#x7ED3;&#x6784;</h3>
+<p>&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;&#x7684;&#x7ED3;&#x6784;&#x8981;&#x653E;&#x5728;&#x5185;&#x5B58;1MB&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x65B9;&#x4FBF;&#x4F20;&#x7ED9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;</p>
+<h3 id="&#x89C4;&#x5212;&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;">&#x89C4;&#x5212;&#x4E8C;&#x7EA7;&#x5F15;&#x5BFC;&#x5668;</h3>
+<p><img src="https://static001.geekbang.org/resource/image/31/1e/3169e9db4549ab036c2de269788a281e.jpg?wh=1636*846" alt="img"></p>
+<h3 id="&#x5177;&#x4F53;&#x64CD;&#x4F5C;">&#x5177;&#x4F53;&#x64CD;&#x4F5C;</h3>
+<p>1.&#x7F16;&#x8BD1;</p>
+<p><code>make -f Makefile</code></p>
+<p><img src="https://static001.geekbang.org/resource/image/bd/40/bd55f67d02edff4415f06c914403bc40.jpg?wh=5005*3110" alt="img"></p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x5728;<code>/Cosmos/initldr/build/</code>&#x76EE;&#x5F55;&#x4E2D;&#x591A;&#x51FA;&#x6765;&#x4E86;<code>initldrimh.bin</code>,<code>initdrkrl.bin</code>&#x548C;<code>initldrsve.bin</code>&#x4E09;&#x4E2A;bin&#x6587;&#x4EF6;&#x3002;</p>
+<p>2.&#x5728;<code>/Cosmos/initldr/build/</code>&#x5E95;&#x4E0B;&#x8F93;&#x5165;&#x547D;&#x4EE4;</p>
+<p><code>lmoskrlimg -m k -lhf initldrimh.bin -o Cosmos.eki -f initldrkrl.bin initldrsve.bin</code></p>
+<p>&#x5C06;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#x6253;&#x5305;&#x6210;&#x6620;&#x50CF;&#x6587;&#x4EF6;</p>
+<p><strong>&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x53D1;&#x73B0;&#x672A;&#x80FD;&#x627E;&#x5230;&#x547D;&#x4EE4;&#xFF01;</strong></p>
+<p>&#x4F46;&#x662F;&#x6620;&#x50CF;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x5728;&#x6240;&#x7ED9;&#x7684;&#x6587;&#x4EF6;&#x4E2D;</p>
+<p>&#x540E;&#x9762;&#x7684;&#x76F4;&#x63A5;&#x770B;&#x8BFE;&#x7A0B;&#x770B;&#x4EE3;&#x7801;</p>
+<h3 id="&#x6574;&#x7406;&#x4EE5;&#x4E0B;">&#x6574;&#x7406;&#x4EE5;&#x4E0B;</h3>
+<p>&#x5927;&#x4F53;&#x4E0A;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p>1&#x3001;grub&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x542F;&#x52A8;&#x83DC;&#x5355;&#x9879;&#xFF0C;grub&#x4F1A;&#x901A;&#x8FC7;&#x81EA;&#x5E26;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x9A71;&#x52A8;&#xFF0C;&#x5B9A;&#x4F4D;&#x5230;&#x5BF9;&#x5E94;&#x7684;eki&#x6587;&#x4EF6;</p>
+<p>2&#x3001;grub&#x4F1A;&#x5C1D;&#x8BD5;&#x52A0;&#x8F7D;eki&#x6587;&#x4EF6;&#x3010;eki&#x6587;&#x4EF6;&#x9700;&#x8981;&#x6EE1;&#x8DB3;grub&#x591A;&#x534F;&#x8BAE;&#x5F15;&#x5BFC;&#x5934;&#x7684;&#x683C;&#x5F0F;&#x8981;&#x6C42;&#x3011;
+&#x8FD9;&#x4E9B;&#x662F;&#x5728;imginithead.asm&#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x5305;&#x62EC;&#xFF1A;
+A&#x3001;grub&#x6587;&#x4EF6;&#x5934;&#xFF0C;&#x5305;&#x62EC;&#x9B54;&#x6570;&#x3001;grub1&#x548C;grub2&#x652F;&#x6301;&#x7B49;
+B&#x3001;&#x5B9A;&#x4F4D;&#x7684;_start&#x7B26;&#x53F7;&#x7B49;</p>
+<p>3&#x3001;grub&#x6821;&#x9A8C;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;_start&#xFF0C;&#x7136;&#x8DF3;&#x8F6C;&#x5230;_entry
+A&#x3001;_entry&#x4E2D;:&#x5173;&#x95ED;&#x4E2D;&#x65AD;
+B&#x3001;&#x52A0;&#x8F7D;GDT
+C&#x3001;&#x7136;&#x540E;&#x8FDB;&#x5165;_32bits_mode&#xFF0C;&#x6E05;&#x7406;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x8BBE;&#x7F6E;&#x6808;&#x9876;
+D&#x3001;&#x8C03;&#x7528;inithead_entry&#x3010;C&#x3011;</p>
+<p>4&#x3001;inithead_entry.c
+A&#x3001;&#x4ECE;imginithead.asm&#x8FDB;&#x5165;&#x540E;&#xFF0C;&#x9996;&#x5148;&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x8C03;&#x7528;inithead_entry
+B&#x3001;&#x521D;&#x59CB;&#x5316;&#x5149;&#x6807;&#xFF0C;&#x6E05;&#x5C4F;
+C&#x3001;&#x4ECE;eki&#x6587;&#x4EF6;&#x5185;&#x90E8;&#xFF0C;&#x627E;&#x5230;initldrsve.bin&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5206;&#x522B;&#x62F7;&#x8D1D;&#x5230;&#x5185;&#x5B58;&#x7684;&#x6307;&#x5B9A;&#x7269;&#x7406;&#x5730;&#x5740;
+D&#x3001;&#x4ECE;eki&#x6587;&#x4EF6;&#x5185;&#x90E8;&#xFF0C;&#x627E;&#x5230;initldrkrl.bin&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5206;&#x522B;&#x62F7;&#x8D1D;&#x5230;&#x5185;&#x5B58;&#x7684;&#x6307;&#x5B9A;&#x7269;&#x7406;&#x5730;&#x5740;
+E&#x3001;&#x8FD4;&#x56DE;imginithead.asm</p>
+<p>5&#x3001;imginithead.asm&#x4E2D;&#x7EE7;&#x7EED;&#x6267;&#x884C;
+jmp 0x200000
+&#x800C;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x5C31;&#x662F;initldrkrl.bin&#x5728;&#x5185;&#x5B58;&#x7684;&#x4F4D;&#x7F6E;ILDRKRL_PHYADR
+&#x6240;&#x4EE5;&#x540E;&#x9762;&#x8981;&#x6267;&#x884C;initldrkrl.bin&#x7684;&#x5185;&#x5BB9;</p>
+<p>6&#x3001;&#x8FD9;&#x6837;&#x5C31;&#x5230;&#x4E86;ldrkrl32.asm&#x7684;_entry
+A&#x3001;&#x5C06;GDT&#x52A0;&#x8F7D;&#x5230;GDTR&#x5BC4;&#x5B58;&#x5668;&#x3010;&#x5185;&#x5B58;&#x3011;
+B&#x3001;&#x5C06;IDT&#x52A0;&#x8F7D;&#x5230;IDTR&#x5BC4;&#x5B58;&#x5668;&#x3010;&#x4E2D;&#x65AD;&#x3011;
+C&#x3001;&#x8DF3;&#x8F6C;&#x5230;_32bits_mode
+&#x521D;&#x59CB;&#x5BC4;&#x5B58;&#x5668;
+&#x521D;&#x59CB;&#x5316;&#x6808;
+&#x8C03;&#x7528;ldrkrl_entry&#x3010;C&#x3011;</p>
+<p>7&#x3001;ldrkrlentry.c
+A&#x3001;&#x521D;&#x59CB;&#x5316;&#x5149;&#x6807;&#xFF0C;&#x6E05;&#x5C4F;
+B&#x3001;&#x6536;&#x96C6;&#x673A;&#x5668;&#x53C2;&#x6570;init_bstartparm&#x3010;C&#x3011;</p>
+<p>8&#x3001;bstartparm.c
+A&#x3001;&#x521D;&#x59CB;&#x5316;machbstart_t
+B&#x3001;&#x5404;&#x7C7B;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#xFF0C;&#x586B;&#x5145;machbstart_t&#x7684;&#x5185;&#x5BB9;
+C&#x3001;&#x8FD4;&#x56DE;</p>
+<p>9&#x3001;ldrkrlentry.c
+A&#x3001;&#x8FD4;&#x56DE;</p>
+<p>10&#x3001;ldrkrl32.asm
+A&#x3001;&#x8DF3;&#x8F6C;&#x5230;0x2000000&#x5730;&#x5740;&#x7EE7;&#x7EED;&#x6267;&#x884C;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="OS_10.html" class="navigation navigation-prev " aria-label="Previous page: 尝试搭建操作系统——grub启动">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="OS_12.html" class="navigation navigation-next " aria-label="Next page: 设置工作模式和环境">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"二级引导器","level":"1.12","depth":1,"next":{"title":"设置工作模式和环境","level":"1.13","depth":1,"path":"OS_12.md","ref":"OS_12.md","articles":[]},"previous":{"title":"尝试搭建操作系统——grub启动","level":"1.11","depth":1,"path":"OS_10.md","ref":"OS_10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"OS_11.md","mtime":"2022-01-31T04:02:38.875Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-31T05:25:51.549Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
