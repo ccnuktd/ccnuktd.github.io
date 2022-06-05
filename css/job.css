@@ -237,3 +237,17 @@ body{
     margin: 0 0 0 1px;
 }
 
+.picture
+{
+    display:inline;
+    margin: 0 5px 0;
+    border-radius:5px;
+    border-style:solid;
+    border-width:2px;
+    border-color:#fff;
+}
+
+.picture_text {
+    display:inline;
+    vertical-align: top;
+}
