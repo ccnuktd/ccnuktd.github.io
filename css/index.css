@@ -8,7 +8,6 @@ body{
 
 
 .grid-container{
-    
     display: grid;
     grid-template-rows:100px auto auto auto;
     grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
@@ -24,24 +23,6 @@ body{
     /* position: fixed; */
 }
 
-@media (max-width: 955px){
-    body{
-        margin-top: 0px;
-        margin: 0 auto 0 auto;
-        background-color:#7a7873;
-        /* width:100%; */
-    }
-    .grid-container .nav{
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: auto !important;
-        /* background-image: url(./img/nav.png); */
-        /* background-size: cover; */
-    }
-    .grid-container .nav h1{
-        display: none !important;
-    }
-}
     
 .grid-container .nav{
     display: grid;
@@ -51,8 +32,9 @@ body{
     /* background-size: cover; */
 }
 .grid-container .nav h1{
-    margin-left: 10px;
+    margin-left: 20%;
     margin-top: 30px;
+    text-align: center;
     color: rgb(26, 22, 22);
 }
 .grid-container .ribbon {
@@ -137,7 +119,7 @@ body{
     background-color:whitesmoke;
     display: grid;
     grid-template-rows:auto;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 200px auto;
     grid-gap: 5px;
     text-align: left;
     
@@ -155,16 +137,16 @@ body{
     list-style-type: none;
 }
 
-@media (max-width: 955px) {
+@media{
     .main{
         display: block;
         background-color: whitesmoke;
         text-align: left;
-        margin: 0 auto 0 auto;
+        margin: 0 10% 0 10%;
     }
     .main1 img{
         width: 100px;
-        margin-left: 20%;
+        margin-left: 35%;
         /* 用float手机端显示有问题 */
         float: left;
     }
@@ -215,8 +197,8 @@ body{
 
 .main2{
     border: 2px #cecece solid;
-    padding: 5% 5% 5% 5%;
-    margin: 5% 5% 5% 5%;
+    padding: 0% 2% 1% 2%;
+    margin: 0% 2% 2% 2%;
     text-align: left;
     overflow: hidden;
 }
@@ -229,11 +211,11 @@ body{
 .main2 .section1 div p{
     padding: 0 20% 0 10%;
     display: inline-block;
-    line-height: 5px;
+    line-height: 3px;
     font-size: 1em;
 }
 .main2 .section1 div p a{
-    margin: 0 0 0 2px;
+    margin: 0 0 0 1px;
 }
 
 .picture

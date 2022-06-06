@@ -24,12 +24,11 @@ body{
     /* position: fixed; */
 }
 
-@media (max-width: 910px){
+@media (max-width: 955px){
     body{
         margin-top: 0px;
         margin: 0 auto 0 auto;
         background-color:#7a7873;
-        
         /* width:100%; */
     }
     .grid-container .nav{
@@ -138,7 +137,7 @@ body{
     background-color:whitesmoke;
     display: grid;
     grid-template-rows:auto;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 300px auto;
     grid-gap: 5px;
     text-align: left;
     
@@ -156,7 +155,7 @@ body{
     list-style-type: none;
 }
 
-@media (max-width: 910px) {
+@media (max-width: 955px) {
     .main{
         display: block;
         background-color: whitesmoke;
@@ -216,8 +215,8 @@ body{
 
 .main2{
     border: 2px #cecece solid;
-    padding: 0% 2% 1% 2%;
-    margin: 0% 2% 2% 2%;
+    padding: 5% 5% 5% 5%;
+    margin: 5% 5% 5% 5%;
     text-align: left;
     overflow: hidden;
 }
@@ -230,11 +229,11 @@ body{
 .main2 .section1 div p{
     padding: 0 20% 0 10%;
     display: inline-block;
-    line-height: 3px;
+    line-height: 5px;
     font-size: 1em;
 }
 .main2 .section1 div p a{
-    margin: 0 0 0 1px;
+    margin: 0 0 0 2px;
 }
 
 .picture

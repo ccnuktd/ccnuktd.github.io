@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS小游戏</title>
 </head>
 <body>
+    <a href="./index.html" style="color: #000; text-decoration: none; overflow: hidden; font-size: 25px" ><span>点击返回主页</span></a>
     <div style="text-align: center;">
         <canvas id="jump"  width="960px" height="640px"></canvas>
     </div>
@@ -174,10 +175,13 @@
                 deta_x += JumpDis / 60;
                 Target.top = yuan_top + f(JumpDis,deta_x);
                 Target.left = yuan_left + deta_x;
-                Target.middle = Target.left + 0.5 * Target.length; 
+                Target.middle = Target.left + 0.5 * Target.length;
 
                 if(timesRun === 60){
+                    // 参数修正
                     Target.top = yuan_top;
+                    Target.left = yuan_left + deta_x;
+                    Target.middle = Target.left + 0.5 * Target.length;
                     NoJump = 0;
                     clearInterval(t);
                     isFail();
@@ -249,7 +253,6 @@
         function isFail(){
             if((Target.middle < leftBlock.left || (Target.middle > leftBlock.left + leftBlock.length && Target.middle < rightBlock.left) || Target.middle > rightBlock.left + rightBlock.length)){
                 restart = 1;
-                alert("fail");
             }
             else{
                 //奖励行为
@@ -260,6 +263,7 @@
         
         function showScore(jumpDis){  
             let waitTime = 0;
+            let stop_time = 4;
             let t = setInterval(function(){
                 waitTime += 1;
                 //显示3s分数
@@ -273,9 +277,9 @@
                 ctx.fillText("你的分数: " + score,380,150);
 
                 ctx.fillStyle = "#000000";
-                ctx.fillText(4 - waitTime + "秒后跳转",400,250);
+                ctx.fillText(stop_time - waitTime + "秒后跳转",400,250);
 
-                if(waitTime === 4){
+                if(waitTime === stop_time){
                     clearInterval(t);
                     init();
                 }
@@ -289,6 +293,8 @@
                 //clear需要clear上一个draw，而上一个draw已经加了dis，所以写clear要注意
                 clearTarget();
                 drawTarget();
+                drawLeftBlock();
+                drawRightBlock();
                 Target.top += dis;
                 if(waitTime === 30){
                     clearInterval(t);
