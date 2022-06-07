@@ -13,7 +13,7 @@ body{
     grid-template-rows:100px auto auto auto;
     grid-template-columns: minmax(150px,1fr) minmax(150px,1fr) minmax(150px,1fr) 20%;
     grid-gap: 5px;
-    /* min-width: 850px; */
+     /*min-width: 850px;*/
 }
 
 .grid-container > :nth-child(1){

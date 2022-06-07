@@ -179,21 +179,6 @@ body{
     .main1 .menu ul{
         display: none;
     }
-    /* .main1 .menu{
-        display: inline;
-    }
-    .main1 .menu:focus{
-        outline: none;
-    }
-    .main1 .menu-button{
-        float: left;
-    }
-    .main1 .menu:focus{
-        cursor: pointer;
-    }
-    .main1 .menu:focus .menu-button{
-        display: inline;
-    } */
     
     
     .main1 .menu:focus ul a{
