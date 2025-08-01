@@ -20,7 +20,7 @@ body{
     margin-top: 0.5em;
     content: "";
     display: flex;
-    border: 1.5em solid rgb(199, 199, 199);
+    border: 1.5em solid rgb(255, 255, 255);
 }
 
 .ribbon:after {
@@ -89,7 +89,7 @@ body{
 
 .main-section {
     border: 2px #cecece solid;
-    background-color: whitesmoke;
+    background-color: #ffffff;
     padding: 30px;
     margin: 30px;
     text-align: left;
